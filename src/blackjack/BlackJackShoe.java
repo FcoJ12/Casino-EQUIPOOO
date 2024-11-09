@@ -4,8 +4,21 @@
  */
 package blackjack;
 
-public class BlackJack {
+import java.util.LinkedList;
+
+/**
+ *
+ * @author javi
+ */
+
+
+
+class BlackJackShoe {
     
+    static int numeroDeMazos = 6;
     
+    public static void reiniciarBaraja(){
+        
+    }
     
 }

@@ -4,7 +4,11 @@
  */
 package blackjack;
 
-public class BlackJack {
+/**
+ *
+ * @author javi
+ */
+public class Dealer {
     
     
     
