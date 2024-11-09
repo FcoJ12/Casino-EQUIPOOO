@@ -11,11 +11,15 @@ import blackjack.BlackJack;
  * @author javi
  */
 public class JFrame_Principal extends javax.swing.JFrame {
+    
+    public static JFrame_Principal principalWindow;
 
     private BlackJack blackJackWindow = new BlackJack();
     
     public JFrame_Principal() {
         initComponents();
+        
+        principalWindow = this;
     }
 
     @SuppressWarnings("unchecked")
@@ -60,7 +64,12 @@ public class JFrame_Principal extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_BlackJackActionPerformed
 
+    public void setJFramePrincipalVisible(){
+        this.setVisible(true);
+    }
+ 
     /**
+     *
      * @param args the command line arguments
      */
     public static void main(String args[]) {
