@@ -11,8 +11,8 @@ public class Carta {
     
     static ArrayList<String> tiposDeCartas = new ArrayList<String>(Arrays.asList("Corazones", "Diamantes", "Tréboles", "Picas","J","Q","K"));
     
-    int valor;
-    int tipoDeCarta;
+    private int valor;
+    private int tipoDeCarta;
     
     public Carta (int valor, int tipoDeCarta){
         this.valor = valor;

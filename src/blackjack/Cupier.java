@@ -8,7 +8,7 @@ package blackjack;
  *
  * @author javi
  */
-public class Dealer {
+public class Cupier {
     
     
     

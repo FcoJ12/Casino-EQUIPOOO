@@ -11,7 +11,7 @@ public class Mazo {
 
 private static Random rd = new Random();
 
-    LinkedList<Carta> mazo = new LinkedList<>(); 
+    LinkedList<Carta> barajaCompleta = new LinkedList<>(); 
 
     LinkedList<Carta> cartasDeCorazones = new LinkedList<>();
     LinkedList<Carta> cartasDeDiamantes = new LinkedList<>();
@@ -62,7 +62,7 @@ private static Random rd = new Random();
             int indexCartas = rd.nextInt(cartasDeLaBaraja.size());
             int indexCarta = rd.nextInt(cartasDeLaBaraja.get(indexCartas).size());
 
-            mazo.add(cartasDeLaBaraja.get(indexCartas).remove(indexCarta));
+            barajaCompleta.add(cartasDeLaBaraja.get(indexCartas).remove(indexCarta));
 
             if (cartasDeLaBaraja.get(indexCartas).size() == 0)
                 cartasDeLaBaraja.remove(indexCartas);   
@@ -72,8 +72,6 @@ private static Random rd = new Random();
     public void obtenerMazoBarajeado (){
         barajearCartasEnEspecifico();
         combinarCartas();
-        
-        System.out.println(mazo.size());
     }
     
 
