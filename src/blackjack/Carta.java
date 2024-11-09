@@ -27,4 +27,8 @@ public class Carta {
         return tipoDeCarta;
     }
     
+    
+    public String toString(){
+        return valor + " : " + tiposDeCartas.get(tipoDeCarta-1) + "\n";
+    }
 }

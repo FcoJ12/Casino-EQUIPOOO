@@ -23,13 +23,22 @@ private static Random rd = new Random();
 
     LinkedList<LinkedList<Carta>> cartasDeLaBaraja = new LinkedList<>();
 
-
-    public void barajearCartas (LinkedList<Carta> cartas, int tipoDeCarta){
+    public void barajearCartasEnEspecifico (){
+        barajearTiposDeCartas(cartasDeCorazones,1,10);
+        barajearTiposDeCartas(cartasDeDiamantes,2,10);
+        barajearTiposDeCartas(cartasDeTreboles,3,10);
+        barajearTiposDeCartas(cartasDePicas,4,10);
+        barajearTiposDeCartas(cartasJ,5,4);
+        barajearTiposDeCartas(cartasQ,6,4);
+        barajearTiposDeCartas(cartasK,7,4);
+    }
+    
+    public void barajearTiposDeCartas (LinkedList<Carta> cartas, int tipoDeCarta, int cantidad){
         
         cartasDeLaBaraja.add(cartas);
         
-        while (cartas.size() != 10){
-            Integer randomNumber = rd.nextInt(10) + 1; 
+        while (cartas.size() != cantidad){
+            Integer randomNumber = rd.nextInt(cantidad) + 1; 
             boolean banderaCartaExistente = false;
             
             for (int i = 0; i < cartas.size(); i++) {
@@ -39,30 +48,34 @@ private static Random rd = new Random();
             }
             
             if (!banderaCartaExistente){
-                cartas.add(new Carta(randomNumber,tipoDeCarta));
+                if (tipoDeCarta != 5 && tipoDeCarta != 6 && tipoDeCarta != 7)
+                    cartas.add(new Carta(randomNumber,tipoDeCarta));
+                else 
+                    cartas.add(new Carta(10,tipoDeCarta));
             }
- 
         }
-    }
-    
-    public void barajearCartasEnEspecifico (LinkedList<Integer> cartas){
-        barajearCartas(cartasDeCorazones,1);
-        barajearCartas(cartasDeDiamantes,2);
-        barajearCartas(cartasDeTreboles,3);
-        barajearCartas(cartasDePicas,4);
-        barajearCartas(cartasJ,5);
-        barajearCartas(cartasQ,6);
-        barajearCartas(cartasK,7);
+        
     }
     
     public void combinarCartas (){
-        int indexCartas = rd.nextInt(cartasDeLaBaraja.size());
-        int indexCarta = rd.nextInt(cartasDeLaBaraja.get(indexCartas).size());
-        
-        mazo.add(cartasDeLaBaraja.get(indexCartas).remove());
-        
-        if (cartasDeLaBaraja.get(indexCartas).size() == 0)
-            cartasDeLaBaraja.get(indexCartas).remove();   
+        while(cartasDeLaBaraja.size() != 0){
+            int indexCartas = rd.nextInt(cartasDeLaBaraja.size());
+            int indexCarta = rd.nextInt(cartasDeLaBaraja.get(indexCartas).size());
+
+            mazo.add(cartasDeLaBaraja.get(indexCartas).remove(indexCarta));
+
+            if (cartasDeLaBaraja.get(indexCartas).size() == 0)
+                cartasDeLaBaraja.remove(indexCartas);   
+        }
     }
+    
+    public void obtenerMazoBarajeado (){
+        barajearCartasEnEspecifico();
+        combinarCartas();
+        
+        System.out.println(mazo.size());
+    }
+    
+
     
 }
