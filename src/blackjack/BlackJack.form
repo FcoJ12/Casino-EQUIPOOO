@@ -32,8 +32,8 @@
                   <Component id="botonJugarBlackJack" alignment="0" pref="190" max="32767" attributes="0"/>
                   <Component id="botonMenuPrincipal" alignment="0" pref="190" max="32767" attributes="0"/>
                   <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jLabel4" alignment="1" max="32767" attributes="0"/>
-                      <Component id="jLabel3" alignment="1" pref="180" max="32767" attributes="0"/>
+                      <Component id="fichasLabel" alignment="1" max="32767" attributes="0"/>
+                      <Component id="userLabel" alignment="1" pref="180" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="51" max="32767" attributes="0"/>
@@ -68,9 +68,9 @@
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                       <Component id="botonMenuPrincipal" min="-2" pref="110" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      <Component id="userLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                      <Component id="fichasLabel" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="39" max="32767" attributes="0"/>
@@ -129,7 +129,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JLabel" name="userLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Cantarell" size="18" style="0"/>
@@ -137,7 +137,7 @@
         <Property name="text" type="java.lang.String" value="Ususuario:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
+    <Component class="javax.swing.JLabel" name="fichasLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Cantarell" size="18" style="0"/>

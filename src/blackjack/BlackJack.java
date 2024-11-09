@@ -6,12 +6,11 @@ package blackjack;
 
 import casino.JFrame_Principal;
 
-/**
- *
- * @author javi
- */
 public class BlackJack extends javax.swing.JFrame {
-
+    
+    public String usuario;
+    public int dinderoDelUsuario;
+    
     /**
      * Creates new form BlackJack
      */
@@ -35,8 +34,8 @@ public class BlackJack extends javax.swing.JFrame {
         imageBlackJack = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        userLabel = new javax.swing.JLabel();
+        fichasLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 153, 0));
@@ -66,11 +65,11 @@ public class BlackJack extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/blackjack/images/fichas.png"))); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
-        jLabel3.setText("Ususuario:");
+        userLabel.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
+        userLabel.setText("Ususuario:");
 
-        jLabel4.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
-        jLabel4.setText("Fichas: ");
+        fichasLabel.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
+        fichasLabel.setText("Fichas: ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -82,8 +81,8 @@ public class BlackJack extends javax.swing.JFrame {
                     .addComponent(botonJugarBlackJack, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
                     .addComponent(botonMenuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)))
+                        .addComponent(fichasLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(userLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(imageBlackJack, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -110,9 +109,9 @@ public class BlackJack extends javax.swing.JFrame {
                         .addGap(50, 50, 50)
                         .addComponent(botonMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)
-                        .addComponent(jLabel3)
+                        .addComponent(userLabel)
                         .addGap(30, 30, 30)
-                        .addComponent(jLabel4)))
+                        .addComponent(fichasLabel)))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
 
@@ -126,51 +125,28 @@ public class BlackJack extends javax.swing.JFrame {
     }//GEN-LAST:event_botonMenuPrincipalActionPerformed
 
     private void botonJugarBlackJackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonJugarBlackJackActionPerformed
-        // TODO add your handling code here:
+        JFrameIngresoDeApuesta apuestaFrame = new JFrameIngresoDeApuesta("Ingresa tu Apuesta");
+        apuestaFrame.dineroDisponible = dinderoDelUsuario;
+        
+        apuestaFrame.setVisible(true);
+        
     }//GEN-LAST:event_botonJugarBlackJackActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BlackJack.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BlackJack.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BlackJack.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BlackJack.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new BlackJack("").setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonJugarBlackJack;
     private javax.swing.JButton botonMenuPrincipal;
+    private javax.swing.JLabel fichasLabel;
     private javax.swing.JLabel imageBlackJack;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel userLabel;
     // End of variables declaration//GEN-END:variables
+
+
+    public void setUsuarioInfoLabelText (){
+        this.userLabel.setText("Usuario: "+usuario);
+        this.fichasLabel.setText("Fichas: "+dinderoDelUsuario);
+    }
+    
 }

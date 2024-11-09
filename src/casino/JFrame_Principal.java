@@ -14,7 +14,7 @@ public class JFrame_Principal extends javax.swing.JFrame {
     
     public static JFrame_Principal principalWindow;
 
-    private BlackJack blackJackWindow = new BlackJack("BlackJack Menú");
+    private BlackJack blackJack = new BlackJack("BlackJack Menú");
     
     public JFrame_Principal(String s) {
         super(s);
@@ -61,7 +61,13 @@ public class JFrame_Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BlackJackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BlackJackActionPerformed
-        blackJackWindow.setVisible(true);
+        blackJack.setVisible(true);
+        
+        blackJack.usuario = "Francisco";  ////////////////////////// Modificar
+        blackJack.dinderoDelUsuario = 10_000;
+        
+        blackJack.setUsuarioInfoLabelText();
+        
         this.setVisible(false);
     }//GEN-LAST:event_BlackJackActionPerformed
 
