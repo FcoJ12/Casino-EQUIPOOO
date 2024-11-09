@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package blackjack;
+package blackjack.Cartas;
 
+import blackjack.Cartas.Carta;
 import java.util.LinkedList;
 import java.util.Random;
 
@@ -11,17 +12,17 @@ public class Mazo {
 
 private static Random rd = new Random();
 
-    LinkedList<Carta> barajaCompleta = new LinkedList<>(); 
+    private LinkedList<Carta> barajaCompleta = new LinkedList<>(); 
 
-    LinkedList<Carta> cartasDeCorazones = new LinkedList<>();
-    LinkedList<Carta> cartasDeDiamantes = new LinkedList<>();
-    LinkedList<Carta> cartasDeTreboles = new LinkedList<>();
-    LinkedList<Carta> cartasDePicas = new LinkedList<>();
-    LinkedList<Carta> cartasJ = new LinkedList<>();
-    LinkedList<Carta> cartasQ = new LinkedList<>();
-    LinkedList<Carta> cartasK = new LinkedList<>();
+    private LinkedList<Carta> cartasDeCorazones = new LinkedList<>();
+    private LinkedList<Carta> cartasDeDiamantes = new LinkedList<>();
+    private LinkedList<Carta> cartasDeTreboles = new LinkedList<>();
+    private LinkedList<Carta> cartasDePicas = new LinkedList<>();
+    private LinkedList<Carta> cartasJ = new LinkedList<>();
+    private LinkedList<Carta> cartasQ = new LinkedList<>();
+    private LinkedList<Carta> cartasK = new LinkedList<>();
 
-    LinkedList<LinkedList<Carta>> cartasDeLaBaraja = new LinkedList<>();
+    private LinkedList<LinkedList<Carta>> cartasDeLaBaraja = new LinkedList<>();
 
     public void barajearCartasEnEspecifico (){
         barajearTiposDeCartas(cartasDeCorazones,1,10);
@@ -74,6 +75,10 @@ private static Random rd = new Random();
         combinarCartas();
     }
     
+    
+    public LinkedList<Carta> getBarajaCompleta(){
+        return barajaCompleta;
+    }
 
     
 }

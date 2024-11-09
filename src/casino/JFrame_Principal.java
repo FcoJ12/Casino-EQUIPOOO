@@ -14,9 +14,10 @@ public class JFrame_Principal extends javax.swing.JFrame {
     
     public static JFrame_Principal principalWindow;
 
-    private BlackJack blackJackWindow = new BlackJack();
+    private BlackJack blackJackWindow = new BlackJack("BlackJack Menú");
     
-    public JFrame_Principal() {
+    public JFrame_Principal(String s) {
+        super(s);
         initComponents();
         
         principalWindow = this;
@@ -99,7 +100,7 @@ public class JFrame_Principal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFrame_Principal().setVisible(true);
+                new JFrame_Principal("Menú Principal").setVisible(true);
             }
         });
     }
