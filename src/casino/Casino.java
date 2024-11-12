@@ -12,5 +12,6 @@ public class Casino {
     public static void main(String[] args) {
         CasinoIGU casinoIGU = new CasinoIGU();
         casinoIGU.setVisible(true);
+        System.out.println("Hola");
     }
 }
