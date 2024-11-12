@@ -95,7 +95,7 @@ public class Tragamonedas {
         return opt;
     }
     
-    public int Jugar(){
+    public int Jugar(int mult){
         ArrayList<Simbolo> tirada = new ArrayList<>();
         int cCer=0;
         int cBar=0;
@@ -115,7 +115,7 @@ public class Tragamonedas {
         mostrarTirada(tirada);
         
         int premio = comprobarPremio(tirada, cCer, cBar, c7);
-        return premio;
+        return premio*mult;
     }
     
     public Simbolo girar(){
@@ -266,7 +266,7 @@ public class Tragamonedas {
                         saldo-=3;
                         perdida+=3;
                         tiradas++;
-                        premio = maquina.Jugar();
+                        premio = maquina.Jugar(1);
                         if(premio>0)
                             System.out.println("Felicidades tu premio es de: "+ premio);
                         else
@@ -280,7 +280,7 @@ public class Tragamonedas {
                         saldo-=6;
                         perdida+=6;
                         tiradas++;
-                        premio = maquina.Jugar()*3;
+                        premio = maquina.Jugar(3);
                         if(premio>0)
                             System.out.println("Felicidades tu premio es de: "+ premio);
                         else
@@ -294,7 +294,7 @@ public class Tragamonedas {
                         saldo-=9;
                         perdida+=9;
                         tiradas++;
-                        premio = maquina.Jugar()*5;
+                        premio = maquina.Jugar(5);
                         if(premio>0)
                             System.out.println("Felicidades tu premio es de: "+ premio);
                         else
