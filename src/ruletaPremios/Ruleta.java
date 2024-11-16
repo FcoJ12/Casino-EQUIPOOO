@@ -26,13 +26,13 @@ public class Ruleta {
         "Suerte para la proxima :("
     };
     
-    public static void Girar(){
+    public static String Girar(){
         Scanner scanner = new Scanner(System.in);  
         Random random = new Random();  
         
-        System.out.println("¡Bienvenido a la ruleta de premios!");  
+        /*System.out.println("¡Bienvenido a la ruleta de premios!");  
         System.out.println("Presiona Enter para girar la ruleta...");  
-        scanner.nextLine();
+        scanner.nextLine();*/
         
         System.out.println("La ruleta está girando...");  
         for (int i = 0; i < 10; i++) {  
@@ -43,10 +43,14 @@ public class Ruleta {
                 System.out.println("¡Error inesperado! No se pudo completar el giro de la ruleta.");   
             }  
         }
-        int indicePremio = random.nextInt(Premios.length);  
-        String premioGanado = Premios[indicePremio]; 
-        
-        System.out.println("\n¡Felicidades! Has ganado: " + premioGanado); 
+        int indicePremio = random.nextInt(Premios.length); 
+        String premioGanado;
+        if(indicePremio == 13){
+            premioGanado = "Mejor " + Premios[indicePremio];
+        }else{
+           premioGanado = "\n¡Felicidades! Has ganado: " + Premios[indicePremio]; 
+        }
+        return  premioGanado; 
         
     }
 }
