@@ -4,6 +4,7 @@
  */
 package casino;
 
+import Juegos.Tragamonedas.TragamonedasVentana;
 import blackjack.BlackJack;
 
 /**
@@ -15,6 +16,7 @@ public class JFrame_Principal extends javax.swing.JFrame {
     public static JFrame_Principal principalWindow;
 
     private BlackJack blackJack = new BlackJack("BlackJack Menú");
+    private TragamonedasVentana tragamonedas = new TragamonedasVentana();
     
     public JFrame_Principal(String s) {
         super(s);
@@ -28,6 +30,7 @@ public class JFrame_Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         BlackJack = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -38,24 +41,33 @@ public class JFrame_Principal extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Tragamonedas");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(341, 341, 341)
+                .addGap(57, 57, 57)
                 .addComponent(BlackJack, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(356, Short.MAX_VALUE))
+                .addGap(117, 117, 117)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(362, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(196, 196, 196)
-                .addComponent(BlackJack, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(213, Short.MAX_VALUE))
+                .addGap(44, 44, 44)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BlackJack, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(365, Short.MAX_VALUE))
         );
-
-        BlackJack.getAccessibleContext().setAccessibleName("BlackJack");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -70,6 +82,12 @@ public class JFrame_Principal extends javax.swing.JFrame {
         
         this.setVisible(false);
     }//GEN-LAST:event_BlackJackActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        tragamonedas.setVisible(true);
+        
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public void setJFramePrincipalVisible(){
         this.setVisible(true);
@@ -113,5 +131,6 @@ public class JFrame_Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BlackJack;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }

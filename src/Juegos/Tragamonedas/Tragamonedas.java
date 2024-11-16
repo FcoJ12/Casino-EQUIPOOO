@@ -112,10 +112,10 @@ public class Tragamonedas {
             tirada.add(sim);
         }
         
-        mostrarTirada(tirada);
+        //mostrarTirada(tirada);
         
         int premio = comprobarPremio(tirada, cCer, cBar, c7);
-        return new Tirada(tirada, premio);
+        return new Tirada(tirada, premio*mult);
     }
     
     public Simbolo girar(){

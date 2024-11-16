@@ -1,6 +1,7 @@
 package Juegos.Tragamonedas;
 
 import Juegos.Tragamonedas.Simbolos.*;
+import casino.JFrame_Principal;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
@@ -17,38 +18,31 @@ import javax.swing.JPanel;
  *
  * @author Murat
  */
-public class TragamonedasIGU extends JPanel{
+public class TragamonedasPanel extends JPanel{
     
     Tragamonedas tragamonedas;
     int saldo;
     JLabel saldoEtiqueta;
     JLabel premioEtiqueta;
-    JLabel giro1;
-    JLabel giro2;
-    JLabel giro3;
+    ArrayList<JLabel> giros;
     
-    public TragamonedasIGU(){
-        this.setSize(900,900);
+    public TragamonedasPanel(){
+        this.setSize(854,480);
         this.setLayout(null);
         tragamonedas = new Tragamonedas();
-        JLabel encabezado = new JLabel("!!!GANA MILES DE PREMIOS!!!");
-        encabezado.setBounds(260,10,500,50);
-        this.add(encabezado);
         
         this.setBackground(Color.red.darker().darker().darker());
-        encabezado.setFont(new Font("Arial",1,30));
-        encabezado.setForeground(Color.white);
         
         saldo = 1000;
         saldoEtiqueta = new JLabel();
-        saldoEtiqueta.setBounds(30, 150, 200, 30);
+        saldoEtiqueta.setBounds(30, 130, 200, 30);
         saldoEtiqueta.setFont(new Font("Arial", Font.BOLD, 18));
         saldoEtiqueta.setForeground(Color.white);
         this.add(saldoEtiqueta);
         actualizarSaldo();
 
         premioEtiqueta = new JLabel();
-        premioEtiqueta.setBounds(250,600,600,50);
+        premioEtiqueta.setBounds(210,350,600,50);
         premioEtiqueta.setFont(new Font("arial",1,40));
         premioEtiqueta.setForeground(Color.white);
         
@@ -77,12 +71,12 @@ public class TragamonedasIGU extends JPanel{
         jugarSimple.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jugar(3);  // Llama a jugar con un costo de $3
+                jugar(3); 
             }
         });
         
         JButton jugarDoble = new JButton("Juego doble ($6)");
-        jugarDoble.setBounds(220,70,160,50);
+        jugarDoble.setBounds(210,70,160,50);
         jugarDoble.setBackground(Color.gray.brighter());
         jugarDoble.setFont(fuente1);
         jugarDoble.addActionListener(new ActionListener() {
@@ -94,25 +88,33 @@ public class TragamonedasIGU extends JPanel{
 
         
         JButton jugarTriple = new JButton("Juego triple ($9)");
-        jugarTriple.setBounds(420,70,150,50);
+        jugarTriple.setBounds(390,70,160,50);
         jugarTriple.setBackground(Color.gray.brighter());
         jugarTriple.setFont(fuente1);
         jugarTriple.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jugar(9);  // Llama a jugar con un costo de $3
+                jugar(9);  
             }
         });
         
         JButton verTabla = new JButton("Ver tabla");
-        verTabla.setBounds(620,70,150,50);
+        verTabla.setBounds(570,70,120,50);
         verTabla.setBackground(Color.gray.brighter());
         verTabla.setFont(fuente2);
         
         JButton salir = new JButton("Salir");
-        salir.setBounds(820,70,150,50);
+        salir.setBounds(710,70,100,50);
         salir.setBackground(Color.gray.brighter());
         salir.setFont(fuente2);
+        salir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame ventana = (JFrame) javax.swing.SwingUtilities.getWindowAncestor(TragamonedasPanel.this);
+                ventana.setVisible(false);
+                JFrame_Principal.principalWindow.setVisible(true);
+            }
+        });
 
         this.add(jugarSimple);
         this.add(jugarDoble);
@@ -123,27 +125,31 @@ public class TragamonedasIGU extends JPanel{
     }
     
     private void colocarIconos(){
-        ImageIcon icon1 = new ImageIcon(getClass().getResource("/Juegos/Tragamonedas/SimbolosIconos/SieteRojo.jpg"));
-        ImageIcon icon2 = new ImageIcon(getClass().getResource("/Juegos/Tragamonedas/SimbolosIconos/SieteVerde.jpg"));
-        ImageIcon icon3 = new ImageIcon(getClass().getResource("/Juegos/Tragamonedas/SimbolosIconos/Cereza.jpg"));
+        ImageIcon icon1 = new ImageIcon(getClass().getResource("/Juegos/Tragamonedas/SimbolosIconos/3Bar.jpg"));
+        ImageIcon icon2 = new ImageIcon(getClass().getResource("/Juegos/Tragamonedas/SimbolosIconos/Manzana.jpg"));
+        ImageIcon icon3 = new ImageIcon(getClass().getResource("/Juegos/Tragamonedas/SimbolosIconos/Sandia.jpg"));
         
-        giro1 = new JLabel();
-        giro1.setBounds(0,0,1000,1000);
-        giro1.setIcon(new ImageIcon(icon1.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
+        giros = new ArrayList<>();
         
-        giro2 = new JLabel(icon2);
-        giro2.setBounds(0,0,1000,1000);
-        giro2.setIcon(new ImageIcon(icon2.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
+        JLabel giro0 = new JLabel();
+        giro0.setBounds(90,170,150,150);
+        giro0.setIcon(new ImageIcon(icon1.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
+        
+        JLabel giro1 = new JLabel();
+        giro1.setBounds(340,170,150,150);
+        giro1.setIcon(new ImageIcon(icon2.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
 
+        JLabel giro2 = new JLabel();
+        giro2.setBounds(590,170,150,150);
+        giro2.setIcon(new ImageIcon(icon3.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
         
-        giro3 = new JLabel(icon3);
-        giro3.setBounds(100,0,1000,1000);
-        giro3.setIcon(new ImageIcon(icon3.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
+        giros.add(giro0);
+        giros.add(giro1);
+        giros.add(giro2);
         
-        this.add(giro1);
-        this.add(giro2);
-        this.add(giro3);
-
+        this.add(giros.get(0));
+        this.add(giros.get(1));
+        this.add(giros.get(2));
     }
     
     private void jugar(int costo){
@@ -154,8 +160,8 @@ public class TragamonedasIGU extends JPanel{
             Tirada tirada;
             tirada = switch (costo) {
                 case 3 -> tragamonedas.Jugar(1);
-                case 6 -> tragamonedas.Jugar(3);
-                case 9 -> tragamonedas.Jugar(5);
+                case 6 -> tragamonedas.Jugar(2);
+                case 9 -> tragamonedas.Jugar(4);
                 default -> null;
             };
             
@@ -176,14 +182,37 @@ public class TragamonedasIGU extends JPanel{
     void mostrarTiradaInterfaz(ArrayList<Simbolo> tirada){
         for(int i=0; i<tirada.size(); i++){
             Simbolo sim = tirada.get(i);
+            ImageIcon icono = null;
             if(sim instanceof Bar){
-                
+                Bar bari = (Bar) tirada.get(i);
+                int numBars = bari.getBars();
+                switch(numBars){
+                    case 1->{
+                        icono = new ImageIcon(getClass().getResource("/Juegos/Tragamonedas/SimbolosIconos/1Bar.jpg"));
+                    }
+                    case 2->{
+                        icono = new ImageIcon(getClass().getResource("/Juegos/Tragamonedas/SimbolosIconos/2Bar.jpg"));
+                    }
+                    case 3->{
+                        icono = new ImageIcon(getClass().getResource("/Juegos/Tragamonedas/SimbolosIconos/3Bar.jpg"));
+                    }
+                }
             } else if(sim instanceof Siete){
-                
+                Siete sieteI = (Siete) tirada.get(i);
+                if(sieteI.getColor().equals("rojo"))
+                    icono = new ImageIcon(getClass().getResource("/Juegos/Tragamonedas/SimbolosIconos/SieteRojo.jpg"));
+                else
+                    icono = new ImageIcon(getClass().getResource("/Juegos/Tragamonedas/SimbolosIconos/SieteVerde.jpg"));
             } else {
-                
+                String clase = tirada.get(i).getClass().getSimpleName();
+                icono = new ImageIcon(getClass().getResource("/Juegos/Tragamonedas/SimbolosIconos/"+clase+".jpg"));
             }
             
+            if (icono != null) {
+                icono = new ImageIcon(icono.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH));
+            }
+            
+            giros.get(i).setIcon(new ImageIcon(icono.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
         }
     }
     

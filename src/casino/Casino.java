@@ -4,14 +4,19 @@
  */
 package casino;
 
+import Juegos.Tragamonedas.TragamonedasVentana;
+
 /**
  *
  * @author Murat
  */
 public class Casino {
     public static void main(String[] args) {
-        CasinoIGU casinoIGU = new CasinoIGU();
-        casinoIGU.setVisible(true);
-        System.out.println("Hola");
+        //CasinoIGU casinoIGU = new CasinoIGU();
+        //casinoIGU.setVisible(true);
+        
+        TragamonedasVentana trV = new TragamonedasVentana();
+        trV.setVisible(true);
+
     }
 }
