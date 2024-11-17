@@ -28,6 +28,7 @@ public class TragamonedasPanel extends JPanel{
     
     public void setSaldo(double saldo){
         this.saldo = saldo;
+        actualizarSaldo();
     }
     
     public TragamonedasPanel(){
@@ -53,10 +54,6 @@ public class TragamonedasPanel extends JPanel{
         this.add(premioEtiqueta);
         colocarBotones();
         colocarIconos();
-    }
-    
-    public void setSaldo(int saldo){
-        this.saldo = saldo;
     }
     
     public void actualizarSaldo(){

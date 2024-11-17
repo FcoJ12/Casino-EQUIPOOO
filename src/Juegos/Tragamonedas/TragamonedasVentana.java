@@ -13,7 +13,7 @@ import javax.swing.JPanel;
  */
 public class TragamonedasVentana extends JFrame {
     
-    JPanel trPanel;
+    public TragamonedasPanel trPanel;
     
     public TragamonedasVentana(){
         this.setSize(854,480);

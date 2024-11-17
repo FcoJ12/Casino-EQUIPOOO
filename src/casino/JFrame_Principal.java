@@ -5,7 +5,7 @@
 package casino;
 
 import Casino.Entrar;
-//import Juegos.Tragamonedas.TragamonedasVentana;
+import Juegos.Tragamonedas.TragamonedasVentana;
 import blackjack.BlackJack;
 
 /**
@@ -17,7 +17,7 @@ public class JFrame_Principal extends javax.swing.JFrame {
     public static JFrame_Principal principalWindow;
 
     private BlackJack blackJack = new BlackJack("BlackJack Menú");
-    //private TragamonedasVentana tragamonedas;
+    private TragamonedasVentana tragamonedas = new TragamonedasVentana();
     
     double saldo;
     
@@ -25,15 +25,11 @@ public class JFrame_Principal extends javax.swing.JFrame {
         super(s);
         initComponents();
         principalWindow = this;
-        System.out.println("Soy pw");
 
         this.saldo=saldo;
-        System.out.println("Soy saldo");
         jLabel1.setText("Saldo: " + saldo + "$");
-        System.out.println("Soy act saldo this");
 
-        //tragamonedas = new TragamonedasVentana();
-        System.out.println("Soy tragamonedas");
+        tragamonedas.trPanel.setSaldo(this.saldo);
 
     }
 
@@ -146,7 +142,7 @@ public class JFrame_Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_BlackJackActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //tragamonedas.setVisible(true);
+        tragamonedas.setVisible(true);
         
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -154,6 +150,8 @@ public class JFrame_Principal extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
+        Entrar.VentanaEntrar.uM.getUsuarioActual().setSaldo(saldo);
+        Entrar.VentanaEntrar.uM.guardarUsuarios();
         Entrar.VentanaEntrar.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
