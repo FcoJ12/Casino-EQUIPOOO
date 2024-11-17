@@ -14,12 +14,12 @@ import static ruletaPremios.Ruleta.Girar;
  *
  * @author Meybe
  */
-public class ventanaRuleta extends javax.swing.JFrame {
+public class ruletaVentana extends javax.swing.JFrame {
 
     /**
-     * Creates new form ventanaRuleta
+     * Creates new form ruletaVentana
      */
-    public ventanaRuleta() {
+    public ruletaVentana() {
         initComponents();
     }
 
@@ -33,24 +33,24 @@ public class ventanaRuleta extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        Jugar = new javax.swing.JButton();
-        Ruleta = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(0, 153, 255));
 
-        jLabel1.setFont(new java.awt.Font("Elephant", 0, 18)); // NOI18N
-        jLabel1.setText("RULETA PREMIOS");
+        jLabel2.setFont(new java.awt.Font("Elephant", 0, 18)); // NOI18N
+        jLabel2.setText("Ruleta de Premios");
 
-        Jugar.setFont(new java.awt.Font("Elephant", 0, 12)); // NOI18N
-        Jugar.setText("JUGAR");
-        Jugar.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setFont(new java.awt.Font("Elephant", 0, 14)); // NOI18N
+        jButton1.setText("Jugar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JugarActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
-        Ruleta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ruleta/imagenes/ruleta-removebg.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ruleta/imagenes/OIG2.JoImxqgibIc7Ou34Y3.jpeg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -59,39 +59,50 @@ public class ventanaRuleta extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(167, 167, 167)
-                        .addComponent(Ruleta))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(322, 322, 322)
+                        .addGap(174, 174, 174)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(376, 376, 376)
-                        .addComponent(Jugar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(205, Short.MAX_VALUE))
+                        .addGap(257, 257, 257)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(244, 244, 244)
+                        .addComponent(jLabel2)))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Ruleta)
                 .addGap(47, 47, 47)
-                .addComponent(Jugar)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
+                .addGap(56, 56, 56)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(46, 46, 46))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JugarActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
         String premio = Girar();
+
+        // Crear un panel con fondo amarillo y agregar el mensaje
         JPanel panelPersonalizado = new JPanel();
-        panelPersonalizado.setBackground(Color.WHITE);
+        panelPersonalizado.setBackground(Color.white); // Fondo amarillo
         JLabel mensaje = new JLabel(premio);
         panelPersonalizado.add(mensaje);
-        JOptionPane.showMessageDialog(this,panelPersonalizado, "Premio", JOptionPane.PLAIN_MESSAGE, null);
-    }//GEN-LAST:event_JugarActionPerformed
+
+        // Mostrar la ventana sin ícono
+        JOptionPane.showMessageDialog(this, panelPersonalizado, "Premio", JOptionPane.PLAIN_MESSAGE, null);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -110,27 +121,28 @@ public class ventanaRuleta extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ventanaRuleta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ruletaVentana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ventanaRuleta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ruletaVentana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ventanaRuleta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ruletaVentana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ventanaRuleta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ruletaVentana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ventanaRuleta().setVisible(true);
+                new ruletaVentana().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Jugar;
-    private javax.swing.JLabel Ruleta;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
