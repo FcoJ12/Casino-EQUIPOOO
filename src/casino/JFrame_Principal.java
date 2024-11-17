@@ -4,14 +4,13 @@
  */
 package casino;
 
-import Juegos.ruletaPremios.Ruleta;
-import Juegos.ruletaPremios.*;
+import ruletaPremios.Ruleta;
 import Casino.Entrar;
 import Usuario.*;
 import Juegos.Tragamonedas.TragamonedasVentana;
 import Usuario.RecargarSaldo;
 import Juegos.Blackjack.BlackJackPrincipal;
-import Juegos.ruletaPremios.ruletaVentana;
+import ruletaPremios.ruletaVentana;
 import java.util.List;
 
 /**
