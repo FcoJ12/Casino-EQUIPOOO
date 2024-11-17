@@ -11,7 +11,7 @@ import java.util.*;
  */
 
 public class UserManagement {
-    private static final String FILE_NAME = "Usuarios";
+    /*private static final String FILE_NAME = "Usuarios";
     private static Map<String, Usuario> usuarios = new HashMap<>();
     private static Usuario usuarioActual = null;
     
@@ -49,7 +49,7 @@ public class UserManagement {
         return usuarioActual.toString();
     }*/
     
-    private static String guardarUsuarios() {
+    /*private static String guardarUsuarios() {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_NAME))) {
             oos.writeObject(usuarios);
             return "Usuarios guardados exitosamente.";
@@ -74,6 +74,7 @@ public class UserManagement {
             return "El archivo no existe. Se creará un nuevo mapa de usuarios.";
         }
     }*/
+    
 }
 
     
