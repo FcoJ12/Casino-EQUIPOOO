@@ -63,7 +63,11 @@ public class UserManagement {
         return usuarioActual.toString();
     }
     
-    private static String guardarUsuarios() {
+    public Usuario getUsuarioActual(){
+        return usuarioActual;
+    }
+    
+    public static String guardarUsuarios() {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_NAME))) {
             oos.writeObject(usuarios);
             return "Usuarios guardados exitosamente.";
@@ -73,7 +77,7 @@ public class UserManagement {
     }
 
     @SuppressWarnings("unchecked")
-    private static String cargarUsuarios() {
+    public static String cargarUsuarios() {
         File file = new File(FILE_NAME);
         if (file.exists()) {
             try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {

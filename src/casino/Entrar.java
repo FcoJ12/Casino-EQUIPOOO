@@ -15,7 +15,7 @@ import Usuario.UserManagement;
 public class Entrar extends javax.swing.JFrame {
 
     public static Entrar VentanaEntrar;
-    UserManagement uM;
+    public UserManagement uM;
     
     /**
      * Creates new form Entrar
@@ -144,17 +144,19 @@ public class Entrar extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        RegistrarSesion vRS = new RegistrarSesion(uM);
+        RegistrarSesion vRS = new RegistrarSesion();
         vRS.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        uM.guardarUsuarios();
+        System.exit(0);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        IniciarSesion vIS = new IniciarSesion(uM);
+        IniciarSesion vIS = new IniciarSesion();
         vIS.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed

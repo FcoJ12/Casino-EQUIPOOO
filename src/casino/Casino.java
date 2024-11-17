@@ -11,6 +11,7 @@ import Juegos.Tragamonedas.TragamonedasVentana;
  * @author Murat
  */
 public class Casino {
+    /*
     public static void main(String[] args) {
         //CasinoIGU casinoIGU = new CasinoIGU();
         //casinoIGU.setVisible(true);
@@ -19,4 +20,5 @@ public class Casino {
         trV.setVisible(true);
 
     }
+    */
 }

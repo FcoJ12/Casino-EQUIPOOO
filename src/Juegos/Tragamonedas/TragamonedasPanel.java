@@ -21,10 +21,14 @@ import javax.swing.JPanel;
 public class TragamonedasPanel extends JPanel{
     
     Tragamonedas tragamonedas;
-    int saldo;
+    double saldo;
     JLabel saldoEtiqueta;
     JLabel premioEtiqueta;
     ArrayList<JLabel> giros;
+    
+    public void setSaldo(double saldo){
+        this.saldo = saldo;
+    }
     
     public TragamonedasPanel(){
         this.setSize(854,480);
@@ -33,13 +37,13 @@ public class TragamonedasPanel extends JPanel{
         
         this.setBackground(Color.red.darker().darker().darker());
         
-        saldo = 1000;
+        //saldo = 1000;
         saldoEtiqueta = new JLabel();
         saldoEtiqueta.setBounds(30, 130, 200, 30);
         saldoEtiqueta.setFont(new Font("Arial", Font.BOLD, 18));
         saldoEtiqueta.setForeground(Color.white);
         this.add(saldoEtiqueta);
-        actualizarSaldo();
+        this.saldoEtiqueta.setText("Saldo actual: " + saldo + "$");
 
         premioEtiqueta = new JLabel();
         premioEtiqueta.setBounds(210,350,600,50);
@@ -57,6 +61,7 @@ public class TragamonedasPanel extends JPanel{
     
     public void actualizarSaldo(){
         this.saldoEtiqueta.setText("Saldo actual: " + saldo + "$");
+        JFrame_Principal.principalWindow.setSaldo(saldo);
     }
     
     private void colocarBotones(){
@@ -113,6 +118,7 @@ public class TragamonedasPanel extends JPanel{
                 JFrame ventana = (JFrame) javax.swing.SwingUtilities.getWindowAncestor(TragamonedasPanel.this);
                 ventana.setVisible(false);
                 JFrame_Principal.principalWindow.setVisible(true);
+                JFrame_Principal.principalWindow.actualizarSaldo();
             }
         });
 

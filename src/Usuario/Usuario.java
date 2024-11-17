@@ -21,7 +21,7 @@ public class Usuario implements Serializable{
         this.nom_Usuario = nom_Usuario;  
         this.nickname = nickname;  
         this.contra = contra;  
-        this.saldo = 100;  
+        this.saldo = 1000;  
         this.premios = new ArrayList<>(); 
     }
     
