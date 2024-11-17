@@ -4,12 +4,13 @@ package Usuario;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-import java.util.*;  
+import java.util.*;
+import java.io.*;
 /**
  *
  * @author Meybe
  */
-public class Usuario {  
+public class Usuario implements Serializable{  
     private String nom_Usuario;  
     private String nickname;  
     private String contra;  
@@ -78,7 +79,8 @@ public class Usuario {
     public String toString(){
         return "Usuario{" +  
                 "nom_Usuario='" + nom_Usuario + '\'' +  
-                ", nickname='" + nickname + '\'' +  
+                ", nickname='" + nickname + '\'' + 
+                ", contraseña=" + contra + 
                 ", saldo=" + saldo +  
                 ", premios=" + premios +  
                 '}';
