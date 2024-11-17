@@ -1,7 +1,7 @@
-package blackjack;
+package Juegos.Blackjack.Elementos;
 
-import blackjack.Cartas.Mazo;
-import blackjack.Cartas.Carta;
+import Juegos.Blackjack.Cartas.Carta;
+import Juegos.Blackjack.Cartas.Mazo;
 import java.util.LinkedList;
 import java.util.Random;
 
@@ -11,14 +11,14 @@ class BlackJackShoe {
     static Random rd = new Random();
     
     public LinkedList<Carta> cartasDeShoeBarajeadas = new LinkedList<>();
-    public LinkedList<Mazo> mazosDeJuego = new LinkedList<>();
     
     public BlackJackShoe() {
-        
+        barajearCartas();
     }
 
     public void barajearCartas(){
-        
+        LinkedList<Mazo> mazosDeJuego = new LinkedList<>();
+
         for (int i = 0; i < numeroDeMazos; i++) {       //Generamos seis mazos
             Mazo newMazo = new Mazo();                  
             newMazo.obtenerMazoBarajeado();
