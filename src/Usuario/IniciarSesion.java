@@ -156,7 +156,7 @@ public class IniciarSesion extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         boolean puedeInc=Entrar.VentanaEntrar.uM.iniciarSesion(jTextField1.getText(),jPasswordField1.getText());
         if(puedeInc){
-            new JFrame_Principal("Menú Principal",Entrar.VentanaEntrar.uM.getUsuarioActual().getSaldo()).setVisible(true);
+            new JFrame_Principal("Menú Principal",Entrar.VentanaEntrar.uM.getUsuarioActual().getSaldo(), Entrar.VentanaEntrar.uM.getUsuarioActual().getPremios()).setVisible(true);
             this.setVisible(false);
         } else {
             jLabel4.setVisible(true);

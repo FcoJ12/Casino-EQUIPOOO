@@ -24,15 +24,17 @@ public class JFrame_Principal extends javax.swing.JFrame {
     private BlackJackPrincipal blackJack = new BlackJackPrincipal("BlackJack Menú");
     private TragamonedasVentana tragamonedas = new TragamonedasVentana();
     private RecargarSaldo rS = new RecargarSaldo();
+    private ruletaVentana ruleta;
     Usuario usuario = null;
     double saldo;
     List<String> premios = usuario.getPremios();
     
-    public JFrame_Principal(String s, double saldo) {
+    public JFrame_Principal(String s, double saldo, List<String> premios) {
         super(s);
+        this.ruleta = new ruletaVentana(saldo, premios);
         initComponents();
         principalWindow = this;
-
+        this.premios = premios;
         this.saldo=saldo;
         jLabel1.setText("Saldo: " + saldo + "$");
         tragamonedas.trPanel.setSaldo(this.saldo);
@@ -47,6 +49,8 @@ public class JFrame_Principal extends javax.swing.JFrame {
         jLabel1.setText("Saldo: " + saldo + "$");
         this.repaint();
     }
+    
+    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -195,6 +199,7 @@ public class JFrame_Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
         Entrar.VentanaEntrar.uM.getUsuarioActual().setSaldo(saldo);
+        Entrar.VentanaEntrar.uM.getUsuarioActual().setPremios(premios);
         Entrar.VentanaEntrar.uM.guardarUsuarios();
         Entrar.VentanaEntrar.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -212,9 +217,10 @@ public class JFrame_Principal extends javax.swing.JFrame {
 
     private void ruletaPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ruletaPActionPerformed
         // TODO add your handling code here:
-        java.awt.EventQueue.invokeLater(() -> {
-            new ruletaVentana(saldo, premios).setVisible(true);
-        });
+        
+            ruleta.setVisible(true);
+            this.setVisible(false);
+            
     }//GEN-LAST:event_ruletaPActionPerformed
 
     public void setJFramePrincipalVisible(){
@@ -232,4 +238,8 @@ public class JFrame_Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton ruletaP;
     // End of variables declaration//GEN-END:variables
+
+    public void setPremios(List<String> premios) {
+      this.premios = premios;  
+    }
 }

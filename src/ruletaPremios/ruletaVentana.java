@@ -32,6 +32,22 @@ public class ruletaVentana extends javax.swing.JFrame {
         this.saldo = saldo;
         this. premios = new ArrayList<>(); 
     }
+    
+    public void setSaldo(Double saldo){
+        this.saldo = saldo;
+    }
+    
+    public void setPremios(List<String> premios){
+        this.premios = premios;
+    }
+    
+    public void actualizarSaldo(){
+        JFrame_Principal.principalWindow.setSaldo(saldo);
+    }
+    
+    public void actualizarPremios(){
+        JFrame_Principal.principalWindow.setPremios(premios);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
