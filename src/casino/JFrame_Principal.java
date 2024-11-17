@@ -128,7 +128,7 @@ public class JFrame_Principal extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BlackJack;
     private javax.swing.JButton jButton1;

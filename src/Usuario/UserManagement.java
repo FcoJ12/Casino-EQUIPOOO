@@ -11,31 +11,35 @@ import java.util.*;
  */
 
 public class UserManagement {
-    /*private static final String FILE_NAME = "Usuarios";
+    private static final String FILE_NAME = "Usuarios";
     private static Map<String, Usuario> usuarios = new HashMap<>();
     private static Usuario usuarioActual = null;
     
-    public static String iniciarSesion(String nickname, String contraseña){
+    public UserManagement(){
+        cargarUsuarios();
+    }
+    
+    public static boolean iniciarSesion(String nickname, String contraseña){
         Usuario usuario = usuarios.get(nickname);
         if(usuario != null && usuario.getContra().equals(contraseña)){
             usuarioActual = usuario;
-            return "VAMOS A JUGAR";
+            return true;
         }else{
-            return "Usuaio o contraseña incorrectos.";
+            return false;
         }
     }
     
-    public static String crearUsuario(String nombre, String nickname, String contra){
+    public static boolean crearUsuario(String nombre, String nickname, String contra){
         if(usuarios.containsKey(nickname)){
-            return "El usuario ya existe";
+            return false;
         }
         Usuario nuevo = new Usuario(nombre, nickname, contra);
         usuarios.put(nickname, nuevo);
         guardarUsuarios();
-        return "Usuario creadoo exitosamente";
+        return true;
     }
     
-    /*private static String modificarUsuario(String contra, String nombre) {
+    private static String modificarUsuario(String contra, String nombre) {
         if (!nombre.isEmpty()) usuarioActual.setNombre(nombre);
 
         if (!contra.isEmpty()) usuarioActual.setContra(contra);
@@ -47,9 +51,9 @@ public class UserManagement {
 
     private static String verUsuarioActual() {
         return usuarioActual.toString();
-    }*/
+    }
     
-    /*private static String guardarUsuarios() {
+    private static String guardarUsuarios() {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_NAME))) {
             oos.writeObject(usuarios);
             return "Usuarios guardados exitosamente.";
@@ -59,8 +63,8 @@ public class UserManagement {
         }
     }
 
-    //@SuppressWarnings("unchecked")
-    /*private static String cargarUsuarios() {
+    @SuppressWarnings("unchecked")
+    private static String cargarUsuarios() {
         File file = new File(FILE_NAME);
         if (file.exists()) {
             try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
@@ -73,7 +77,7 @@ public class UserManagement {
         } else {
             return "El archivo no existe. Se creará un nuevo mapa de usuarios.";
         }
-    }*/
+    }
     
 }
 
