@@ -77,7 +77,7 @@ public class IniciarSesion extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Usuarios/ImagenesUsuario/Ruleta.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Usuario/ImagenesUsuario/Ruleta.png"))); // NOI18N
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jButton2.setText("Regresar");
