@@ -54,7 +54,7 @@ public class VentanaPrincipalRul extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\arely\\OneDrive\\Documentos\\Casino-POO\\src\\RuletaNum\\Imagenes\\classic-roulette-origins.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Juegos/RuletaNumeros/Imagenes/classic-roulette-origins.png"))); // NOI18N
         jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
