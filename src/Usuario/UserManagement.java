@@ -16,40 +16,50 @@ public class UserManagement {
     private static Usuario usuarioActual = null;
     
     public UserManagement(){
-        cargarUsuarios();
+        System.out.println(cargarUsuarios());
+        System.out.println(usuarios);
     }
     
     public static boolean iniciarSesion(String nickname, String contraseña){
         Usuario usuario = usuarios.get(nickname);
+        
         if(usuario != null && usuario.getContra().equals(contraseña)){
             usuarioActual = usuario;
+            System.out.println("Inicio de sesión exitoso.");
             return true;
-        }else{
+        } else {
+            System.out.println("Error: Credenciales incorrectas.");
             return false;
         }
     }
     
     public static boolean crearUsuario(String nombre, String nickname, String contra){
         if(usuarios.containsKey(nickname)){
+            System.out.println("Error: El nombre de usuario ya existe.");
             return false;
         }
+        
         Usuario nuevo = new Usuario(nombre, nickname, contra);
         usuarios.put(nickname, nuevo);
-        guardarUsuarios();
+        System.out.println(guardarUsuarios());
         return true;
     }
     
-    private static String modificarUsuario(String contra, String nombre) {
-        if (!nombre.isEmpty()) usuarioActual.setNombre(nombre);
+    public static String modificarUsuario(String contra, String nombre) {
+        if (usuarioActual == null) {
+            return "Error: No hay usuario autenticado.";
+        }
 
+        if (!nombre.isEmpty()) usuarioActual.setNombre(nombre);
         if (!contra.isEmpty()) usuarioActual.setContra(contra);
         
-        guardarUsuarios();
-        
-        return "Perfil actualizado exitosamente.";
+        return guardarUsuarios();
     }
 
-    private static String verUsuarioActual() {
+    public static String verUsuarioActual() {
+        if (usuarioActual == null) {
+            return "No hay usuario autenticado.";
+        }
         return usuarioActual.toString();
     }
     
@@ -58,8 +68,7 @@ public class UserManagement {
             oos.writeObject(usuarios);
             return "Usuarios guardados exitosamente.";
         } catch (IOException e) {
-            String a = "Error al guardar usuarios: " + e.getMessage();
-            return a;
+            return "Error al guardar usuarios: " + e.getMessage();
         }
     }
 
@@ -68,17 +77,22 @@ public class UserManagement {
         File file = new File(FILE_NAME);
         if (file.exists()) {
             try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
-                usuarios = (Map<String, Usuario>) ois.readObject();
-                return "Usuarios cargados exitosamente.";
-            } catch (IOException | ClassNotFoundException e) {
-                String a = "Error al cargar usuarios: " + e.getMessage();
-                return a;
+                Object obj = ois.readObject();
+                if (obj instanceof Map) {
+                    usuarios = (Map<String, Usuario>) obj;
+                    return "Usuarios cargados exitosamente.";
+                } else {
+                    return "El archivo contiene datos en un formato incorrecto.";
+                }
+            } catch (IOException e) {
+                return "Error al cargar usuarios: " + e.getMessage();
+            } catch (ClassNotFoundException e) {
+                return "Error al cargar clase: " + e.getMessage();
+            } catch (ClassCastException e) {
+                return "Error de conversión de tipo al cargar usuarios: " + e.getMessage();
             }
         } else {
             return "El archivo no existe. Se creará un nuevo mapa de usuarios.";
         }
     }
-    
 }
-
-    
