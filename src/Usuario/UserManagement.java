@@ -9,13 +9,13 @@ import java.util.*;
  *
  * @author Meybe
  */
+
 public class UserManagement {
     private static final String FILE_NAME = "Usuarios";
     private static Map<String, Usuario> usuarios = new HashMap<>();
     private static Usuario usuarioActual = null;
     
-    public static String iniciarSesion(){
-        //ingresa el nickname y la contraseña
+    public static String iniciarSesion(String nickname, String contraseña){
         Usuario usuario = usuarios.get(nickname);
         if(usuario != null && usuario.getContra().equals(contraseña)){
             usuarioActual = usuario;
@@ -25,22 +25,20 @@ public class UserManagement {
         }
     }
     
-    public static String crearUsuario(){
-        //ingresa los datos
+    public static String crearUsuario(String nombre, String nickname, String contra){
         if(usuarios.containsKey(nickname)){
             return "El usuario ya existe";
         }
-        
         Usuario nuevo = new Usuario(nombre, nickname, contra);
         usuarios.put(nickname, nuevo);
         guardarUsuarios();
+        return "Usuario creadoo exitosamente";
     }
     
-    private static String modificarUsuario() {
-        //ingresa datos a modificar
+    /*private static String modificarUsuario(String contra, String nombre) {
         if (!nombre.isEmpty()) usuarioActual.setNombre(nombre);
 
-        if (!contrasena.isEmpty()) usuarioActual.setContrasena(contrasena);
+        if (!contra.isEmpty()) usuarioActual.setContra(contra);
         
         guardarUsuarios();
         
@@ -49,7 +47,7 @@ public class UserManagement {
 
     private static String verUsuarioActual() {
         return usuarioActual.toString();
-    }
+    }*/
     
     private static String guardarUsuarios() {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_NAME))) {
@@ -61,8 +59,8 @@ public class UserManagement {
         }
     }
 
-    @SuppressWarnings("unchecked")
-    private static String cargarUsuarios() {
+    //@SuppressWarnings("unchecked")
+    /*private static String cargarUsuarios() {
         File file = new File(FILE_NAME);
         if (file.exists()) {
             try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
@@ -75,6 +73,7 @@ public class UserManagement {
         } else {
             return "El archivo no existe. Se creará un nuevo mapa de usuarios.";
         }
-    }
+    }*/
 }
+
     
