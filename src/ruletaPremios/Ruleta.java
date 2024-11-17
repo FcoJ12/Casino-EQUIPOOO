@@ -34,11 +34,11 @@ public class Ruleta {
         System.out.println("Presiona Enter para girar la ruleta...");  
         scanner.nextLine();*/
         
-        System.out.println("La ruleta está girando...");  
+        //System.out.println("La ruleta está girando...");  
         for (int i = 0; i < 10; i++) {  
             try {  
                 Thread.sleep(300); 
-                System.out.print("Ruleta girando... ");  
+                //System.out.print("Ruleta girando... ");  
             } catch (InterruptedException e) {  
                 System.out.println("¡Error inesperado! No se pudo completar el giro de la ruleta.");   
             }  
