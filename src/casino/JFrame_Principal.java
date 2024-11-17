@@ -4,13 +4,13 @@
  */
 package casino;
 
-import ruletaPremios.Ruleta;
+import Juegos.ruletaPremios.Ruleta;
 import Casino.Entrar;
 import Usuario.*;
 import Juegos.Tragamonedas.TragamonedasVentana;
 import Usuario.RecargarSaldo;
 import Juegos.Blackjack.BlackJackPrincipal;
-import ruletaPremios.ruletaVentana;
+import Juegos.ruletaPremios.ruletaVentana;
 import java.util.List;
 
 /**
@@ -25,9 +25,8 @@ public class JFrame_Principal extends javax.swing.JFrame {
     private TragamonedasVentana tragamonedas = new TragamonedasVentana();
     private RecargarSaldo rS = new RecargarSaldo();
     private ruletaVentana ruleta;
-    Usuario usuario = null;
     double saldo;
-    List<String> premios = usuario.getPremios();
+    List<String> premios;
     
     public JFrame_Principal(String s, double saldo, List<String> premios) {
         super(s);
@@ -220,7 +219,8 @@ public class JFrame_Principal extends javax.swing.JFrame {
         
             ruleta.setVisible(true);
             this.setVisible(false);
-            
+            this.setSaldo(saldo);
+            this.setPremios(premios);
     }//GEN-LAST:event_ruletaPActionPerformed
 
     public void setJFramePrincipalVisible(){
