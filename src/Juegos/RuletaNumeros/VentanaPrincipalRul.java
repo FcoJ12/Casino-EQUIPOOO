@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package RuletaNumeros;
+package Juegos.RuletaNumeros;
 
 import casino.JFrame_Principal;
 /**
@@ -54,7 +54,7 @@ public class VentanaPrincipalRul extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\arely\\OneDrive\\Documentos\\Casino\\src\\RuletaNum\\Imagenes\\classic-roulette-origins.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\arely\\OneDrive\\Documentos\\Casino-POO\\src\\RuletaNum\\Imagenes\\classic-roulette-origins.png")); // NOI18N
         jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
