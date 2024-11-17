@@ -6,7 +6,7 @@ package casino;
 
 import Casino.Entrar;
 import Juegos.Tragamonedas.TragamonedasVentana;
-import blackjack.BlackJack;
+import Juegos.Blackjack.BlackJackPrincipal;
 
 /**
  *
@@ -16,7 +16,7 @@ public class JFrame_Principal extends javax.swing.JFrame {
     
     public static JFrame_Principal principalWindow;
 
-    private BlackJack blackJack = new BlackJack("BlackJack Menú");
+    private BlackJackPrincipal blackJack = new BlackJackPrincipal("BlackJack Menú");
     private TragamonedasVentana tragamonedas = new TragamonedasVentana();
     
     double saldo;
