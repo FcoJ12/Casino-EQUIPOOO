@@ -4,10 +4,15 @@
  */
 package casino;
 
+import Juegos.ruletaPremios.Ruleta;
+import Juegos.ruletaPremios.*;
 import Casino.Entrar;
+import Usuario.*;
 import Juegos.Tragamonedas.TragamonedasVentana;
 import Usuario.RecargarSaldo;
 import Juegos.Blackjack.BlackJackPrincipal;
+import Juegos.ruletaPremios.ruletaVentana;
+import java.util.List;
 
 /**
  *
@@ -20,8 +25,9 @@ public class JFrame_Principal extends javax.swing.JFrame {
     private BlackJackPrincipal blackJack = new BlackJackPrincipal("BlackJack Menú");
     private TragamonedasVentana tragamonedas = new TragamonedasVentana();
     private RecargarSaldo rS = new RecargarSaldo();
-    
+    Usuario usuario = null;
     double saldo;
+    List<String> premios = usuario.getPremios();
     
     public JFrame_Principal(String s, double saldo) {
         super(s);
@@ -53,7 +59,7 @@ public class JFrame_Principal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        ruletaP = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -96,8 +102,13 @@ public class JFrame_Principal extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jButton4.setText("Premios");
+        ruletaP.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        ruletaP.setText("Premios");
+        ruletaP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ruletaPActionPerformed(evt);
+            }
+        });
 
         jButton5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jButton5.setText("Recargar saldo");
@@ -129,7 +140,7 @@ public class JFrame_Principal extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ruletaP, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(58, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -141,7 +152,7 @@ public class JFrame_Principal extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BlackJack, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ruletaP, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(51, 51, 51)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -200,6 +211,13 @@ public class JFrame_Principal extends javax.swing.JFrame {
         rS.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void ruletaPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ruletaPActionPerformed
+        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(() -> {
+            new ruletaVentana(saldo, premios).setVisible(true);
+        });
+    }//GEN-LAST:event_ruletaPActionPerformed
+
     public void setJFramePrincipalVisible(){
         this.setVisible(true);
     }
@@ -210,9 +228,9 @@ public class JFrame_Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton ruletaP;
     // End of variables declaration//GEN-END:variables
 }
