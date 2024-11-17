@@ -11,6 +11,7 @@ import Juegos.Tragamonedas.TragamonedasVentana;
 import Usuario.RecargarSaldo;
 import Juegos.Blackjack.BlackJackPrincipal;
 import Juegos.ruletaPremios.ruletaVentana;
+import Juegos.RuletaNumeros.VentanaPrincipalRul;
 import java.util.List;
 
 /**
@@ -23,6 +24,7 @@ public class JFrame_Principal extends javax.swing.JFrame {
 
     private BlackJackPrincipal blackJack = new BlackJackPrincipal("BlackJack Menú");
     private TragamonedasVentana tragamonedas = new TragamonedasVentana();
+    private VentanaPrincipalRul ruletaNum = new VentanaPrincipalRul();
     private RecargarSaldo rS = new RecargarSaldo();
     private ruletaVentana ruleta;
     double saldo;
@@ -205,6 +207,9 @@ public class JFrame_Principal extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        ruletaNum.setVisible(true);
+        //ruletaNum.trPanel.setSaldo(this.saldo);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
