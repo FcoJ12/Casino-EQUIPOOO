@@ -41,6 +41,10 @@ public class JFrame_Principal extends javax.swing.JFrame {
         tragamonedas.trPanel.setSaldo(this.saldo);
         rS.setSaldo(this.saldo);
     }
+    
+    public void actualizarPremios(){
+        this.repaint();
+    }
 
     public void setSaldo(double saldo){
         this.saldo=saldo;

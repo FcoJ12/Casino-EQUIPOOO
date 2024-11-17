@@ -71,6 +71,7 @@ public class ruletaVentana extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,6 +90,14 @@ public class ruletaVentana extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Juegos/ruletaPremios/ruleta/imagenes/OIG2.JoImxqgibIc7Ou34Y3.jpeg"))); // NOI18N
 
+        jButton2.setFont(new java.awt.Font("Wide Latin", 0, 12)); // NOI18N
+        jButton2.setText("Cerrar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -105,19 +114,23 @@ public class ruletaVentana extends javax.swing.JFrame {
                         .addGap(290, 290, 290)
                         .addComponent(jLabel4))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(359, 359, 359)
-                        .addComponent(jButton1)))
+                        .addGap(227, 227, 227)
+                        .addComponent(jButton1)
+                        .addGap(157, 157, 157)
+                        .addComponent(jButton2)))
                 .addContainerGap(209, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
+                .addContainerGap(47, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(40, 40, 40)
                 .addComponent(jLabel4)
                 .addGap(35, 35, 35)
-                .addComponent(jButton1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(53, 53, 53)
                 .addComponent(jLabel3))
         );
@@ -151,9 +164,17 @@ public class ruletaVentana extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, panelPersonalizado, "Premio", JOptionPane.PLAIN_MESSAGE, null);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        JFrame_Principal.principalWindow.setVisible(true);
+        JFrame_Principal.principalWindow.actualizarSaldo();
+        JFrame_Principal.principalWindow.actualizarPremios();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
