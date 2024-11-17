@@ -33,7 +33,7 @@ public class VentanaRuleta extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\arely\\Downloads\\ruleta.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Juegos/RuletaNumeros/Imagenes/ruleta.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         jLabel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
