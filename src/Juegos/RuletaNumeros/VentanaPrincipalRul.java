@@ -17,12 +17,16 @@ public class VentanaPrincipalRul extends javax.swing.JFrame {
      */
     public void setSaldo(double saldo){
         this.saldo = saldo;
+        newframe.ruleta.setFichas(saldo);
+        System.out.println("b: " + newframe.ruleta.getFichas());
+        newframe.actualizarFichas(true);
     }
     
     public VentanaPrincipalRul() {
-        
         initComponents();
         newframe.ruleta.setFichas(saldo);
+        System.out.println("a: " + newframe.ruleta.getFichas());
+        newframe.actualizarFichas(true);
     }
 
     /**
@@ -111,6 +115,7 @@ public class VentanaPrincipalRul extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
+        newframe.setVisible(false);
         JFrame_Principal.principalWindow.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 

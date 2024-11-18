@@ -104,8 +104,7 @@ public class RuletaNumeros {
     
     
     
-    public RuletaNumeros(double fichas){
-        this.fichas = fichas;
+    public RuletaNumeros(){
         casilleros.add(pares);
         casilleros.add(impares);
         

@@ -41,6 +41,7 @@ public class JFrame_Principal extends javax.swing.JFrame {
         tragamonedas.trPanel.setSaldo(this.saldo);
         rS.setSaldo(this.saldo);
         ruleta.setSaldo(this.saldo);
+        ruletaNum.setSaldo(this.saldo);
     }
     
     public void actualizarPremios(){
@@ -212,8 +213,8 @@ public class JFrame_Principal extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        ruletaNum.setSaldo(saldo);
         ruletaNum.setVisible(true);
-        //ruletaNum.trPanel.setSaldo(this.saldo);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -226,7 +227,6 @@ public class JFrame_Principal extends javax.swing.JFrame {
 
     private void ruletaPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ruletaPActionPerformed
         // TODO add your handling code here:
-        
             ruleta.setVisible(true);
             this.setVisible(false);
             this.setSaldo(saldo);
