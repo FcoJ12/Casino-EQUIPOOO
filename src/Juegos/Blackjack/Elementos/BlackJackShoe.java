@@ -2,50 +2,54 @@ package Juegos.Blackjack.Elementos;
 
 import Juegos.Blackjack.Cartas.Carta;
 import Juegos.Blackjack.Cartas.Mazo;
+
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Random;
 
-class BlackJackShoe {
-    
-    static int numeroDeMazos = 6;
-    static Random rd = new Random();
-    
-    public LinkedList<Carta> cartasDeShoeBarajeadas = new LinkedList<>();
-    
-    public BlackJackShoe() {
+public class BlackJackShoe {
+
+    private static Random rd = new Random();
+    private int numeroDeMazos;
+    private LinkedList<Carta> cartasDeShoeBarajeadas;
+
+    public BlackJackShoe(int numeroDeMazos) {
+        if (numeroDeMazos <= 0) {
+            throw new IllegalArgumentException("El número de mazos debe ser mayor a 0.");
+        }
+        this.numeroDeMazos = numeroDeMazos;
+        this.cartasDeShoeBarajeadas = new LinkedList<>();
         barajearCartas();
-    }
-
-    public void barajearCartas(){
-        LinkedList<Mazo> mazosDeJuego = new LinkedList<>();
-
-        for (int i = 0; i < numeroDeMazos; i++) {       //Generamos seis mazos
-            Mazo newMazo = new Mazo();                  
-            newMazo.obtenerMazoBarajeado();
-            
-            mazosDeJuego.add(newMazo);
-        }
         
-        while (mazosDeJuego.size() != 0){
-            int indexMazo = rd.nextInt(mazosDeJuego.size());                                    //Obtenemos números aleatorios para intercalar los mazos.
-            int indexCarta = rd.nextInt(mazosDeJuego.get(indexMazo).getBarajaCompleta().size());               //Obtenemos números aleatorios para intercalar los mazos.
-            
-            cartasDeShoeBarajeadas.add(mazosDeJuego.get(indexMazo).getBarajaCompleta().remove(indexCarta));   //Intercalamos las cartas.
-            
-            if (mazosDeJuego.get(indexMazo).getBarajaCompleta().size() == 0){                                 //Si las listas de las barajas quedan en cero entonces las quitamos.          
-                mazosDeJuego.remove(indexMazo);
-            }
+    }
+
+    public BlackJackShoe() {
+        this(6); // Por defecto, utiliza 6 mazos
+    }
+
+    private void barajearCartas() {
+        LinkedList<Carta> todasLasCartas = new LinkedList<>();
+
+        // Generar y mezclar cartas de cada mazo
+        for (int i = 0; i < numeroDeMazos; i++) {
+            Mazo mazo = new Mazo();
+            mazo.obtenerMazoBarajeado();
+            todasLasCartas.addAll(mazo.getBarajaCompleta());
         }
 
+        // Barajar todas las cartas juntas
+        Collections.shuffle(todasLasCartas, rd);
+        this.cartasDeShoeBarajeadas = todasLasCartas;
     }
-    
-    public LinkedList<Carta> getCartasDeShoeBarajeadas(){
+
+    public LinkedList<Carta> getCartasDeShoeBarajeadas() {
         return cartasDeShoeBarajeadas;
     }
-    
-    public Carta desencolarCarta(){
+
+    public Carta desencolarCarta() {
+        if (cartasDeShoeBarajeadas.isEmpty()) {
+            throw new IllegalStateException("El shoe está vacío. No hay más cartas disponibles.");
+        }
         return cartasDeShoeBarajeadas.pollFirst();
     }
-       
 }
-

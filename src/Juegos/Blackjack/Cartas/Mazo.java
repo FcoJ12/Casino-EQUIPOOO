@@ -17,20 +17,16 @@ private static Random rd = new Random();
     private LinkedList<Carta> cartasDeDiamantes = new LinkedList<>();
     private LinkedList<Carta> cartasDeTreboles = new LinkedList<>();
     private LinkedList<Carta> cartasDePicas = new LinkedList<>();
-    private LinkedList<Carta> cartasJ = new LinkedList<>();
-    private LinkedList<Carta> cartasQ = new LinkedList<>();
-    private LinkedList<Carta> cartasK = new LinkedList<>();
+
 
     private LinkedList<LinkedList<Carta>> cartasDeLaBaraja = new LinkedList<>();
 
     public void barajearCartasEnEspecifico (){
-        barajearTiposDeCartas(cartasDeCorazones,1,10);
-        barajearTiposDeCartas(cartasDeDiamantes,2,10);
-        barajearTiposDeCartas(cartasDeTreboles,3,10);
-        barajearTiposDeCartas(cartasDePicas,4,10);
-        barajearTiposDeCartas(cartasJ,5,4);
-        barajearTiposDeCartas(cartasQ,6,4);
-        barajearTiposDeCartas(cartasK,7,4);
+        barajearTiposDeCartas(cartasDeCorazones,1,13); //11 J , 12 K, 13 Q, 1 AS
+        barajearTiposDeCartas(cartasDeDiamantes,2,13);
+        barajearTiposDeCartas(cartasDeTreboles,3,13);
+        barajearTiposDeCartas(cartasDePicas,4,13);
+
     }
     
     public void barajearTiposDeCartas (LinkedList<Carta> cartas, int tipoDeCarta, int cantidad){
