@@ -4,6 +4,8 @@
  */
 package Juegos.RuletaNumeros;
 
+import casino.JFrame_Principal;
+
 /**
  *
  * @author arely
@@ -15,6 +17,13 @@ public class VentanaRuleta extends javax.swing.JFrame {
      */
     public VentanaRuleta() {
         initComponents();
+        jLabel3.setText("Fichas: "+ ruleta.getFichas());
+        
+    }
+    
+    public void actualizarFichas(){
+        jLabel3.setText("Fichas: "+ ruleta.getFichas());
+        JFrame_Principal.principalWindow.setSaldo(ruleta.getFichas());
     }
 
     /**
@@ -55,7 +64,7 @@ public class VentanaRuleta extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Fichas: 10");
+        jLabel3.setText("Fichas: ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -104,7 +113,7 @@ public class VentanaRuleta extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         ruleta.girar();
-        jLabel3.setText("Fichas: " + ruleta.getFichas());
+        actualizarFichas();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -141,7 +150,7 @@ public class VentanaRuleta extends javax.swing.JFrame {
             }
         });
     }
-    RuletaNumeros ruleta = new RuletaNumeros();
+    RuletaNumeros ruleta = new RuletaNumeros(10);
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

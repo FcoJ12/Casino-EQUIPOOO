@@ -9,14 +9,14 @@ package Juegos.RuletaNumeros;
  * @author arely
  */
 public class UtileriasRuleta {
-    int apuesta;
+    double apuesta;
     
     
-    public int getApuesta() {
+    public double getApuesta() {
         return apuesta;
     }
 
-    public void setApuesta(int apuesta) {
+    public void setApuesta(double apuesta) {
         this.apuesta = apuesta;
     }
     
@@ -34,7 +34,7 @@ public class UtileriasRuleta {
         return "Apuesta: " + apuesta;
     }
     
-    public int calcularGanancia(){
+    public double calcularGanancia(){
         return 0;
     }
 }

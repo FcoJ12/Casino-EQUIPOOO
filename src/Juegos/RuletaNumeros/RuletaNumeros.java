@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  * @author arely
  */
 public class RuletaNumeros {
-    private int fichas = 10;
+    private double fichas;
     
     
     ArrayList<UtileriasRuleta> casilleros = new ArrayList<>();
@@ -102,7 +102,10 @@ public class RuletaNumeros {
         
     }
     
-    public RuletaNumeros(){
+    
+    
+    public RuletaNumeros(double fichas){
+        this.fichas = fichas;
         casilleros.add(pares);
         casilleros.add(impares);
         
@@ -381,11 +384,11 @@ public class RuletaNumeros {
     }
     
 
-    public int getFichas() {
+    public double getFichas() {
         return fichas;
     }
 
-    public void setFichas(int fichas) {
+    public void setFichas(double fichas) {
         this.fichas = fichas;
     }
 }

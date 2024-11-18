@@ -40,6 +40,7 @@ public class JFrame_Principal extends javax.swing.JFrame {
         jLabel1.setText("Saldo: " + saldo + "$");
         tragamonedas.trPanel.setSaldo(this.saldo);
         rS.setSaldo(this.saldo);
+        ruleta.setSaldo(this.saldo);
     }
     
     public void actualizarPremios(){
