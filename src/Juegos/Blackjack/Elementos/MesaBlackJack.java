@@ -61,20 +61,10 @@ public class MesaBlackJack extends javax.swing.JFrame {
 
         buttonParar.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         buttonParar.setText("Parar");
-        buttonParar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonPararActionPerformed(evt);
-            }
-        });
         jPanel1.add(buttonParar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 210, 155, 90));
 
         buttonPedir.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         buttonPedir.setText("+ Carta");
-        buttonPedir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonPedirActionPerformed(evt);
-            }
-        });
         jPanel1.add(buttonPedir, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 155, 90));
 
         imageFicha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Juegos/Blackjack/images/fichaVacia.png"))); // NOI18N
@@ -87,7 +77,7 @@ public class MesaBlackJack extends javax.swing.JFrame {
 
         sumaDeCartas1.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
         sumaDeCartas1.setText("0");
-        jPanel1.add(sumaDeCartas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 80, 60, 50));
+        jPanel1.add(sumaDeCartas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 80, 60, 50));
 
         dineroApuesta.setFont(new java.awt.Font("Cantarell", 1, 28)); // NOI18N
         dineroApuesta.setText("$ 500.00");
@@ -132,30 +122,19 @@ public class MesaBlackJack extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 908, Short.MAX_VALUE)
-                .addGap(21, 21, 21))
+                .addGap(0, 0, 0)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 906, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 12, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void buttonPedirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPedirActionPerformed
-        mediator.notify(this,"Pedir Carta");
-    }//GEN-LAST:event_buttonPedirActionPerformed
-
-    private void buttonPararActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPararActionPerformed
-        this.buttonParar.setEnabled(false);
-        this.buttonPedir.setEnabled(false);
-        
-        mediator.notify(this,"Solicitud Parar");
-    }//GEN-LAST:event_buttonPararActionPerformed
 
     void setTextLabelDinero(int dinero){
         this.dineroJugador.setText("Dinero Disponible: "+dinero);
