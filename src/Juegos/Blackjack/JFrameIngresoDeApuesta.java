@@ -22,6 +22,7 @@ public class JFrameIngresoDeApuesta extends javax.swing.JFrame {
         initComponents();
         
         setTotal();
+        
     }
     
     
@@ -231,7 +232,7 @@ public class JFrameIngresoDeApuesta extends javax.swing.JFrame {
     }//GEN-LAST:event_slider4StateChanged
 
     private void acceptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptButtonActionPerformed
-        Mediator mediator = new Mediator(setTotal(),dineroDisponible);
+        Mediator mediator = new Mediator(dineroDisponible,setTotal());
         
         mediator.setVisibleMesaBlackJack();
         
