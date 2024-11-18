@@ -8,8 +8,10 @@ import casino.JFrame_Principal;
 
 public class BlackJackPrincipal extends javax.swing.JFrame {
     
+    public static BlackJackPrincipal BlackJack;
+    
     public String usuario;
-    public int dinderoDelUsuario;
+    public double dinderoDelUsuario;
     
     /**
      * Creates new form BlackJack
@@ -18,8 +20,18 @@ public class BlackJackPrincipal extends javax.swing.JFrame {
     public BlackJackPrincipal(String s) {
         super(s);
         initComponents();
+        BlackJackPrincipal.BlackJack = this;
+    }
+    
+    public void setDineroDelUsuario(double dinderoDelUsuario){
+        this.dinderoDelUsuario = dinderoDelUsuario;
     }
 
+    public void actualizarDinero(){
+        setUsuarioInfoLabelText();
+        JFrame_Principal.principalWindow.setSaldo(dinderoDelUsuario);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -119,8 +131,8 @@ public class BlackJackPrincipal extends javax.swing.JFrame {
 
     private void botonMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMenuPrincipalActionPerformed
         this.setVisible(false);
+        actualizarDinero();
         JFrame_Principal.principalWindow.setVisible(true);
-        
     }//GEN-LAST:event_botonMenuPrincipalActionPerformed
 
     private void botonJugarBlackJackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonJugarBlackJackActionPerformed

@@ -14,15 +14,15 @@ import java.util.LinkedList;
 public class Jugador {
     
     private LinkedList<Carta> cartasCupier;  //Cartas del juego de CUPIER.
-    private int saldo;
-    private int apuesta;
+    private double saldo;
+    private double apuesta;
     private boolean chaeckParar = false;
     private LinkedList<Carta> cartasDelJugador; 
     
     
     private Mediator mediator;
     
-    public Jugador(int saldo, int apuesta, Mediator mediator){
+    public Jugador(double saldo, double apuesta, Mediator mediator){
         this.saldo = saldo;
         this.apuesta = apuesta;
         this.mediator = mediator;

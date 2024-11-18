@@ -29,12 +29,14 @@ public class JFrame_Principal extends javax.swing.JFrame {
     private ruletaVentana ruleta;
     double saldo;
     List<String> premios;
+    String nombreUsr;
     
-    public JFrame_Principal(String s, double saldo, List<String> premios) {
+    public JFrame_Principal(String s, double saldo, List<String> premios, String nombreUsr) {
         super(s);
         this.ruleta = new ruletaVentana(saldo, premios);
         initComponents();
         principalWindow = this;
+        this.nombreUsr = nombreUsr;
         this.premios = premios;
         this.saldo=saldo;
         jLabel1.setText("Saldo: " + saldo + "$");
@@ -188,8 +190,8 @@ public class JFrame_Principal extends javax.swing.JFrame {
     private void BlackJackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BlackJackActionPerformed
         blackJack.setVisible(true);
         
-        blackJack.usuario = "Francisco";  ////////////////////////// Modificar
-        blackJack.dinderoDelUsuario = 10_000;
+        blackJack.usuario = nombreUsr;
+        blackJack.dinderoDelUsuario = this.saldo;
         
         blackJack.setUsuarioInfoLabelText();
         

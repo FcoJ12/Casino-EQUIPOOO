@@ -12,7 +12,7 @@ import Juegos.Blackjack.Elementos.Mediator;
  */
 public class JFrameIngresoDeApuesta extends javax.swing.JFrame {
 
-    public int dineroDisponible;
+    public double dineroDisponible;
     
     /**
      * Creates new form JFrameIngresoDeApuesta

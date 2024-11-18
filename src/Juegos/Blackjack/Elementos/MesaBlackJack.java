@@ -13,6 +13,8 @@ import javax.swing.ImageIcon;
 
 public class MesaBlackJack extends javax.swing.JFrame {
 
+    public static MesaBlackJack MBJack;
+    
     public int dineroDisponible;
     public Mediator mediator;
     
@@ -21,6 +23,7 @@ public class MesaBlackJack extends javax.swing.JFrame {
         
         initComponents(); 
         
+        MesaBlackJack.MBJack = this;
     }
     
     /**
@@ -162,11 +165,11 @@ public class MesaBlackJack extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonPararActionPerformed
                                           
     
-    void setTextLabelDinero(int dinero){
+    void setTextLabelDinero(double dinero){
         this.dineroJugador.setText("Dinero Disponible: "+dinero);
     }
     
-    void setTextLabelApuesta(int dinero){
+    void setTextLabelApuesta(double dinero){
         this.dineroApuesta.setText("$ "+dinero+".00");
     }
 

@@ -4,6 +4,7 @@
  */
 package Juegos.Blackjack.Elementos;
 
+import Juegos.Blackjack.BlackJackPrincipal;
 import Juegos.Blackjack.Cartas.Carta;
 import java.util.LinkedList;
 import java.util.List;
@@ -19,14 +20,14 @@ public class Mediator implements AbstractMediator{
     private int turnoJugador;
     private MesaBlackJack mesaBlackJack;
     
-    public Mediator(int apuesta, int dinero){
+    public Mediator(double apuesta, double dinero){
         this.cupier = new Cupier(this);
         this.jugadores = new LinkedList<>();
         this.mesaBlackJack = new MesaBlackJack(this);
         
         turnoJugador = 0;
         
-        Jugador jugador = new Jugador (apuesta,dinero,this);
+        Jugador jugador = new Jugador (dinero,apuesta,this); //primeros dos
         jugadores.add(jugador);
         
         mesaBlackJack.setTextLabelDinero(dinero-apuesta);
@@ -125,6 +126,10 @@ public class Mediator implements AbstractMediator{
                     double probabilidad = probabilidadDeObtenerUnaCartaMenorA(restante);
 
                     if (probabilidad <= 0.5){
+                        BlackJackPrincipal.BlackJack.setVisible(true);
+                        //BlackJackPrincipal.BlackJack.setDineroDelUsuario();
+                        BlackJackPrincipal.BlackJack.actualizarDinero();
+                        MesaBlackJack.MBJack.setVisible(false);
                         ////// ACABAAAAAAAAAAAAAARR
                     } else {
                         cupier.tomarCarta();
@@ -147,7 +152,10 @@ public class Mediator implements AbstractMediator{
                 double probabilidad = probabilidadDeObtenerUnaCartaMenorA(restante);
                 
                 if (probabilidad <= 0.5){
-                    ////// ACABAAAAAAAAAAAAAARR
+                    BlackJackPrincipal.BlackJack.setVisible(true);
+                    //BlackJackPrincipal.BlackJack.setDineroDelUsuario();
+                    BlackJackPrincipal.BlackJack.actualizarDinero();
+                    MesaBlackJack.MBJack.setVisible(false);
                 } else {
                     cupier.tomarCarta();
                 }
