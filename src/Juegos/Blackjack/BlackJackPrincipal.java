@@ -30,6 +30,7 @@ public class BlackJackPrincipal extends javax.swing.JFrame {
     public void actualizarDinero(){
         setUsuarioInfoLabelText();
         JFrame_Principal.principalWindow.setSaldo(dinderoDelUsuario);
+        JFrame_Principal.principalWindow.actualizarSaldo();
     }
     
     /**
