@@ -50,6 +50,7 @@ public class MesaBlackJack extends javax.swing.JFrame {
         cupierCard4 = new javax.swing.JLabel();
         playerCard5 = new javax.swing.JLabel();
         playerCard6 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,10 +62,20 @@ public class MesaBlackJack extends javax.swing.JFrame {
 
         buttonParar.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         buttonParar.setText("Parar");
+        buttonParar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPararActionPerformed(evt);
+            }
+        });
         jPanel1.add(buttonParar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 210, 155, 90));
 
         buttonPedir.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         buttonPedir.setText("+ Carta");
+        buttonPedir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPedirActionPerformed(evt);
+            }
+        });
         jPanel1.add(buttonPedir, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 155, 90));
 
         imageFicha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Juegos/Blackjack/images/fichaVacia.png"))); // NOI18N
@@ -117,6 +128,9 @@ public class MesaBlackJack extends javax.swing.JFrame {
         playerCard6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.add(playerCard6, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 330, 90, 130));
 
+        jButton1.setText("jButton1");
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -136,6 +150,18 @@ public class MesaBlackJack extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void buttonPedirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPedirActionPerformed
+        mediator.notify(this,"Pedir Carta");
+    }//GEN-LAST:event_buttonPedirActionPerformed
+
+    private void buttonPararActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPararActionPerformed
+        this.buttonParar.setEnabled(false);
+        this.buttonPedir.setEnabled(false);
+        
+        mediator.notify(this,"Solicitud Parar");
+    }//GEN-LAST:event_buttonPararActionPerformed
+                                          
+    
     void setTextLabelDinero(int dinero){
         this.dineroJugador.setText("Dinero Disponible: "+dinero);
     }
@@ -383,6 +409,7 @@ public class MesaBlackJack extends javax.swing.JFrame {
     private javax.swing.JLabel dineroApuesta;
     private javax.swing.JLabel dineroJugador;
     private javax.swing.JLabel imageFicha;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel playerCard1;
     private javax.swing.JLabel playerCard2;
