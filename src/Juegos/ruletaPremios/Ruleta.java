@@ -27,7 +27,7 @@ public class Ruleta {
     };
     
     public static String Girar(){
-        Scanner scanner = new Scanner(System.in);  
+        //Scanner scanner = new Scanner(System.in);  
         Random random = new Random();  
         
         /*System.out.println("¡Bienvenido a la ruleta de premios!");  
