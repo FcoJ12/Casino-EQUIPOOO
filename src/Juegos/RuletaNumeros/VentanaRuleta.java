@@ -19,7 +19,6 @@ public class VentanaRuleta extends javax.swing.JFrame {
      */
     public VentanaRuleta() {
         initComponents();
-        System.out.println(ruleta.getFichas());
         jLabel3.setText("Fichas: "+ ruleta.getFichas());
     }
     

@@ -25,10 +25,10 @@ public class UserManagement {
         
         if(usuario != null && usuario.getContra().equals(contraseña)){
             usuarioActual = usuario;
-            System.out.println("Inicio de sesión exitoso.");
+            //System.out.println("Inicio de sesión exitoso.");
             return true;
         } else {
-            System.out.println("Error: Credenciales incorrectas.");
+            //System.out.println("Error: Credenciales incorrectas.");
             return false;
         }
     }

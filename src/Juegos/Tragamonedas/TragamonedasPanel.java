@@ -20,17 +20,15 @@ import javax.swing.JPanel;
  */
 public class TragamonedasPanel extends JPanel{
     
+    public static TragamonedasPanel TraPanel;
+    
     Tragamonedas tragamonedas;
     double saldo;
     JLabel saldoEtiqueta;
     JLabel premioEtiqueta;
     ArrayList<JLabel> giros;
     Premios premios;
-    
-    public void setSaldo(double saldo){
-        this.saldo = saldo;
-        actualizarSaldo();
-    }
+    ContextoTragamonedas cTragamonedas;
     
     public TragamonedasPanel(){
         this.setSize(854,480);
@@ -56,6 +54,19 @@ public class TragamonedasPanel extends JPanel{
         this.add(premioEtiqueta);
         colocarBotones();
         colocarIconos();
+        
+        cTragamonedas = new ContextoTragamonedas();
+        
+        TragamonedasPanel.TraPanel = this;
+    }
+    
+    public double getSaldo(){
+        return saldo;
+    }
+    
+    public void setSaldo(double saldo){
+        this.saldo = saldo;
+        actualizarSaldo();
     }
     
     public void actualizarSaldo(){
@@ -75,7 +86,8 @@ public class TragamonedasPanel extends JPanel{
         jugarSimple.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jugar(3); 
+                cTragamonedas.setTipoJuego(new JugarSimple());
+                cTragamonedas.jugar();
             }
         });
         
@@ -86,7 +98,8 @@ public class TragamonedasPanel extends JPanel{
         jugarDoble.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jugar(6);  
+                cTragamonedas.setTipoJuego(new JugarDoble());
+                cTragamonedas.jugar();
             }
         });
 
@@ -98,7 +111,8 @@ public class TragamonedasPanel extends JPanel{
         jugarTriple.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jugar(9);  
+                cTragamonedas.setTipoJuego(new JugarTriple());
+                cTragamonedas.jugar();
             }
         });
         
@@ -162,33 +176,6 @@ public class TragamonedasPanel extends JPanel{
         this.add(giros.get(0));
         this.add(giros.get(1));
         this.add(giros.get(2));
-    }
-    
-    private void jugar(int costo){
-        if(costo<=saldo){
-            saldo-=costo;
-            actualizarSaldo();
-            
-            Tirada tirada;
-            tirada = switch (costo) {
-                case 3 -> tragamonedas.Jugar(1);
-                case 6 -> tragamonedas.Jugar(2);
-                case 9 -> tragamonedas.Jugar(4);
-                default -> null;
-            };
-            
-            mostrarTiradaInterfaz(tirada.getTirada());
-            
-            if(tirada.getPremio()>0){
-                premioEtiqueta.setText("!!!! GANASTE " + tirada.getPremio() + " !!!!");
-                this.saldo+=tirada.getPremio();
-                actualizarSaldo();
-            } else {
-                premioEtiqueta.setText("Suerte para la proxima ");
-            }
-        } else {
-            premioEtiqueta.setText("Saldo insuficiente :(");
-        }
     }
     
     void mostrarTiradaInterfaz(ArrayList<Simbolo> tirada){
