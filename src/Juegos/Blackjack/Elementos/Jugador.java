@@ -30,14 +30,6 @@ public class Jugador {
         this.cartasDelJugador = new LinkedList<Carta>();
     }
     
-    public void duplicarApuesta(){
-        this.apuesta *= 2;
-    }
-    
-    public void solicitarCartaCupier(){
-
-    }
-    
     public void addCarta(Carta carta){
         cartasDelJugador.add(carta);
         
@@ -111,6 +103,14 @@ public class Jugador {
     
     public LinkedList<Carta> getCartas(){
         return cartasDelJugador;
+    }
+    
+    double getSaldo(){
+        return saldo;
+    }
+    
+    double getApuesta(){
+        return apuesta;
     }
     
     public void setCheckParar (boolean check){

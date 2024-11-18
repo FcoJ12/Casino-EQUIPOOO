@@ -24,6 +24,8 @@ public class MesaBlackJack extends javax.swing.JFrame {
         initComponents(); 
         
         MesaBlackJack.MBJack = this;
+        
+        this.salirButton.setEnabled(false);
     }
     
     /**
@@ -54,6 +56,7 @@ public class MesaBlackJack extends javax.swing.JFrame {
         playerCard5 = new javax.swing.JLabel();
         playerCard6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        salirButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,7 +73,7 @@ public class MesaBlackJack extends javax.swing.JFrame {
                 buttonPararActionPerformed(evt);
             }
         });
-        jPanel1.add(buttonParar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 210, 155, 90));
+        jPanel1.add(buttonParar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 210, 155, 90));
 
         buttonPedir.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         buttonPedir.setText("+ Carta");
@@ -79,11 +82,11 @@ public class MesaBlackJack extends javax.swing.JFrame {
                 buttonPedirActionPerformed(evt);
             }
         });
-        jPanel1.add(buttonPedir, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 155, 90));
+        jPanel1.add(buttonPedir, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 155, 90));
 
         imageFicha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Juegos/Blackjack/images/fichaVacia.png"))); // NOI18N
         imageFicha.setText("jLabel3");
-        jPanel1.add(imageFicha, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 94, -1));
+        jPanel1.add(imageFicha, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 94, -1));
 
         sumaDeCartas.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
         sumaDeCartas.setText("0");
@@ -95,7 +98,7 @@ public class MesaBlackJack extends javax.swing.JFrame {
 
         dineroApuesta.setFont(new java.awt.Font("Cantarell", 1, 28)); // NOI18N
         dineroApuesta.setText("$ 500.00");
-        jPanel1.add(dineroApuesta, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 220, 158, 74));
+        jPanel1.add(dineroApuesta, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 220, 210, 74));
 
         playerCard1.setBackground(new java.awt.Color(255, 255, 255));
         playerCard1.setText("1");
@@ -134,6 +137,16 @@ public class MesaBlackJack extends javax.swing.JFrame {
         jButton1.setText("jButton1");
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, -1, -1));
 
+        salirButton.setBackground(new java.awt.Color(255, 51, 51));
+        salirButton.setFont(new java.awt.Font("Cantarell", 1, 36)); // NOI18N
+        salirButton.setText("Salir");
+        salirButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(salirButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 480, 210, 80));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -163,6 +176,10 @@ public class MesaBlackJack extends javax.swing.JFrame {
         
         mediator.notify(this,"Solicitud Parar");
     }//GEN-LAST:event_buttonPararActionPerformed
+
+    private void salirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirButtonActionPerformed
+        mediator.notify(this,"Salir Juego");
+    }//GEN-LAST:event_salirButtonActionPerformed
                                           
     
     void setTextLabelDinero(double dinero){
@@ -170,7 +187,7 @@ public class MesaBlackJack extends javax.swing.JFrame {
     }
     
     void setTextLabelApuesta(double dinero){
-        this.dineroApuesta.setText("$ "+dinero+".00");
+        this.dineroApuesta.setText("$ "+dinero);
     }
 
     void setImagePlayer1(String pathName) {
@@ -400,6 +417,10 @@ public class MesaBlackJack extends javax.swing.JFrame {
     void setButtonPararState(boolean state){
         this.buttonParar.setEnabled(state);
     }
+    
+    void setButtonSalirState(boolean state){
+        this.salirButton.setEnabled(state);
+    }
      
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -420,6 +441,7 @@ public class MesaBlackJack extends javax.swing.JFrame {
     private javax.swing.JLabel playerCard4;
     private javax.swing.JLabel playerCard5;
     private javax.swing.JLabel playerCard6;
+    private javax.swing.JButton salirButton;
     private javax.swing.JLabel sumaDeCartas;
     private javax.swing.JLabel sumaDeCartas1;
     // End of variables declaration//GEN-END:variables

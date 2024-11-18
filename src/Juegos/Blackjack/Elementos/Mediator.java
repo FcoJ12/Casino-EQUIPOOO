@@ -6,8 +6,11 @@ package Juegos.Blackjack.Elementos;
 
 import Juegos.Blackjack.BlackJackPrincipal;
 import Juegos.Blackjack.Cartas.Carta;
+import java.time.Duration;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,10 +23,13 @@ public class Mediator implements AbstractMediator{
     private int turnoJugador;
     private MesaBlackJack mesaBlackJack;
     
-    public Mediator(double apuesta, double dinero){
+    public Mediator(double dinero, double apuesta){
         this.cupier = new Cupier(this);
         this.jugadores = new LinkedList<>();
         this.mesaBlackJack = new MesaBlackJack(this);
+        
+        System.out.println("Saldo: "+dinero);
+        System.out.println("Apuesta: "+apuesta);
         
         turnoJugador = 0;
         
@@ -125,12 +131,10 @@ public class Mediator implements AbstractMediator{
                 } else {                
                     double probabilidad = probabilidadDeObtenerUnaCartaMenorA(restante);
 
-                    if (probabilidad <= 0.5){
-                        BlackJackPrincipal.BlackJack.setVisible(true);
-                        //BlackJackPrincipal.BlackJack.setDineroDelUsuario();
-                        BlackJackPrincipal.BlackJack.actualizarDinero();
-                        MesaBlackJack.MBJack.setVisible(false);
-                        ////// ACABAAAAAAAAAAAAAARR
+                    if (probabilidad <= 0.45){
+                        
+                        terminarJuego ();
+                        
                     } else {
                         cupier.tomarCarta();
                     }
@@ -151,11 +155,11 @@ public class Mediator implements AbstractMediator{
             } else {                
                 double probabilidad = probabilidadDeObtenerUnaCartaMenorA(restante);
                 
-                if (probabilidad <= 0.5){
-                    BlackJackPrincipal.BlackJack.setVisible(true);
-                    //BlackJackPrincipal.BlackJack.setDineroDelUsuario();
-                    BlackJackPrincipal.BlackJack.actualizarDinero();
-                    MesaBlackJack.MBJack.setVisible(false);
+                if (probabilidad <= 0.45){
+                   
+                    terminarJuego();
+                    
+
                 } else {
                     cupier.tomarCarta();
                 }
@@ -164,7 +168,11 @@ public class Mediator implements AbstractMediator{
         } else if (sender instanceof MesaBlackJack && event.equals("Solicitud Parar")){
             jugadores.get(turnoJugador).setCheckParar(true);
             
-        } 
+        } else if (sender instanceof MesaBlackJack && event.equals("Salir Juego")){
+            BlackJackPrincipal.BlackJack.setVisible(true);
+            BlackJackPrincipal.BlackJack.actualizarDinero();
+            MesaBlackJack.MBJack.setVisible(false);
+        }
     }
     
     public List<Integer> contarCartas() {
@@ -210,11 +218,7 @@ public class Mediator implements AbstractMediator{
 
         // Calcular la probabilidad
         double probabilidad = (double) suma / totalCartasRestantes;
-
-        System.out.println("Suma de cartas menores a " + numero + ": " + suma);
-        System.out.println("Total de cartas restantes: " + totalCartasRestantes);
-        System.out.println("Probabilidad: " + probabilidad);
-
+        
         return probabilidad;
     }
     
@@ -290,29 +294,73 @@ public class Mediator implements AbstractMediator{
         
     }
     
-    void verificarGanador (){
+    void terminarJuego (){
+        mesaBlackJack.setButtonSalirState(true);
+        
+        int ganador = verificarGanador();
+        
+        WinnerFrame winner = new WinnerFrame();
+        winner.setVisible(true);
+        
+        double jugadorSaldo = jugadores.get(0).getSaldo();
+        double jugadorApuesta = jugadores.get(0).getApuesta();
+        
+        
+        
+        switch(ganador){
+            case 0 -> {
+                winner.setWinnerLabel("Perdiste :/");
+                BlackJackPrincipal.BlackJack.setDineroDelUsuario(jugadorSaldo - jugadorApuesta);
+                System.out.println(jugadorSaldo - jugadorApuesta);
+                BlackJackPrincipal.BlackJack.actualizarDinero(); 
+            }
+            case 1 ->{
+                winner.setWinnerLabel("Ganaste :D");
+                BlackJackPrincipal.BlackJack.setDineroDelUsuario(jugadorSaldo + jugadorApuesta);
+                System.out.println(jugadorSaldo + jugadorApuesta);
+                BlackJackPrincipal.BlackJack.actualizarDinero(); 
+            }
+            case 2 -> {
+                winner.setWinnerLabel("Empate :/");
+            }
+        }
+        
+               
+    }
+    
+    int verificarGanador() {
         int jugador = mesaBlackJack.getSuamDeCartasJugador();
         int cupier = mesaBlackJack.getSuamDeCartasJugador1();
-        
-        if (jugador > 21 && cupier > 21){
-            if (jugador < cupier){
-                
+
+
+        // Caso 1: Ambos se pasan de 21
+        if (jugador > 21 && cupier > 21) {
+            if (jugador < cupier) {
+                return 1; // El jugador "pierde menos", por lo gana
             } else {
-                
+                return 0; // El crupier "pierde menos", por lo gana
             }
-        } else if (jugador > 21 && cupier < 21){
-           
-        } else if (jugador < 21 && cupier > 21){
-            
-        } else if (jugador < 21 && cupier > 21){
-            if (jugador > cupier){
-                
-            } else {
-               
-            }
-        } else {
-            
         }
+
+        if (jugador > 21) {
+            return 0; // El jugador pierde si se pasa de 21
+        }
+
+        if (cupier > 21) {
+            return 1; // El jugador gana si el crupier se pasa de 21
+        }
+
+        if (jugador > cupier) {
+            return 1; // El jugador gana
+        }
+
+        if (cupier > jugador) {
+            return 0; // El crupier gana
+        }
+
+        return 2; // Empate
     }
+
+
     
 }
