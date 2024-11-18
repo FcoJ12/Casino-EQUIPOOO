@@ -11,6 +11,6 @@ package Juegos.RuletaNumeros;
 public class Rojo extends UtileriasRuleta{
     @Override
     public double calcularGanancia() {
-        return getApuesta()*2;
+        return getApuesta()*20;
     }
 }

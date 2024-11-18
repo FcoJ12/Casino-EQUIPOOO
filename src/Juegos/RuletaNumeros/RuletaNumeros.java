@@ -76,8 +76,7 @@ public class RuletaNumeros {
                     fichas = fichas + pleno.calcularGanancia();
                 }
             }
-            
-            //casillero.limpiar();
+          
         }
         
         for (UtileriasRuleta casillero : casilleros) {
@@ -167,219 +166,170 @@ public class RuletaNumeros {
         //0
         if (x >= 20 && x <= 86){
             if (y >= 11 && y <= 273) {
-                System.out.println("Apuesta al 0");
             }
         }
         //1ra columna
         if (y >= 165 && y <= 236){
             if (x >= 88 && x <= 132) {
-                System.out.println("Apuesta al numero 1");
                 casilleros.get(2).sumarFicha();
             }
             if (x >= 138 && x <= 180) {
-                System.out.println("Apuesta al numero 4");
                 casilleros.get(5).sumarFicha();
             }
             if (x >= 184 && x <= 228) {
-                System.out.println("Apuesta al numero 7");
                 casilleros.get(8).sumarFicha();
                
             }
             if (x >= 230 && x <= 276) {
-                System.out.println("Apuesta al numero 10");
                 casilleros.get(11).sumarFicha();
                 
             }
             if (x >= 280 && x <= 321) {
-                System.out.println("Apuesta al numero 13");
                 casilleros.get(14).sumarFicha();
             }
             if (x >= 324 && x <= 369) {
-                System.out.println("Apuesta al numero 16");
                 casilleros.get(17).sumarFicha();
             }
             if (x >= 373 && x <= 416) {
-                System.out.println("Apuesta al numero 19");
                 casilleros.get(20).sumarFicha();
             }
             if (x >= 422 && x <= 463) {
-                System.out.println("Apuesta al numero 22");
                 casilleros.get(23).sumarFicha();
             }
             if (x >= 468 && x <= 511) {
-                System.out.println("Apuesta al numero 25");
                 casilleros.get(26).sumarFicha();
             }
             if (x >= 517 && x <= 560) {
-                System.out.println("Apuesta al numero 28");
                 casilleros.get(29).sumarFicha();
             }
             if (x >= 563 && x <= 606) {
-                System.out.println("Apuesta al numero 31");
                 casilleros.get(32).sumarFicha();
             }
             if (x >= 610 && x <= 653) {
-                System.out.println("Apuesta al numero 34");
                 casilleros.get(35).sumarFicha();
             }
             if (x >= 660 && x <= 701) {
-                System.out.println("Apuesta a la 1ra columna");
                 columna1.sumarFicha();
             }
         }
         //2da columna
         if (y >= 86 && y <= 161){
             if (x >= 88 && x <= 132) {
-                System.out.println("Apuesta al numero 2");
                 casilleros.get(3).sumarFicha();
             }
             if (x >= 138 && x <= 180) {
-                System.out.println("Apuesta al numero 5");
                 casilleros.get(6).sumarFicha();
             }
             if (x >= 184 && x <= 228) {
-                System.out.println("Apuesta al numero 8");
                 casilleros.get(9).sumarFicha();
             }
             if (x >= 230 && x <= 276) {
-                System.out.println("Apuesta al numero 11");
                 casilleros.get(12).sumarFicha();
             }
             if (x >= 280 && x <= 321) {
-                System.out.println("Apuesta al numero 14");
                 casilleros.get(15).sumarFicha();
             }
             if (x >= 324 && x <= 369) {
-                System.out.println("Apuesta al numero 17");
                 casilleros.get(18).sumarFicha();
             }
             if (x >= 373 && x <= 416) {
-                System.out.println("Apuesta al numero 20");
                 casilleros.get(21).sumarFicha();
             }
             if (x >= 422 && x <= 463) {
-                System.out.println("Apuesta al numero 23");
                 casilleros.get(24).sumarFicha();
             }
             if (x >= 468 && x <= 511) {
-                System.out.println("Apuesta al numero 26");
                 casilleros.get(27).sumarFicha();
             }
             if (x >= 517 && x <= 560) {
-                System.out.println("Apuesta al numero 29");
                 casilleros.get(30).sumarFicha();
             }
             if (x >= 563 && x <= 606) {
-                System.out.println("Apuesta al numero 32");
                 casilleros.get(33).sumarFicha();
             }
             if (x >= 610 && x <= 653) {
-                System.out.println("Apuesta al numero 35");
                 casilleros.get(36).sumarFicha();
             }
             if (x >= 660 && x <= 701) {
-                System.out.println("Apuesta a la 2da columna");
                 columna2.sumarFicha();
             }
         }
         //3ra columna
         if (y >= 11 && y <= 83){
             if (x >= 88 && x <= 132) {
-                System.out.println("Apuesta al numero 3");
                 casilleros.get(4).sumarFicha();
             }
             if (x >= 138 && x <= 180) {
-                System.out.println("Apuesta al numero 6");
                 casilleros.get(7).sumarFicha();
             }
             if (x >= 184 && x <= 228) {
-                System.out.println("Apuesta al numero 9");
                 casilleros.get(10).sumarFicha();
             }
             if (x >= 230 && x <= 276) {
-                System.out.println("Apuesta al numero 12");
                 casilleros.get(13).sumarFicha();
             }
             if (x >= 280 && x <= 321) {
-                System.out.println("Apuesta al numero 15");
                 casilleros.get(16).sumarFicha();
             }
             if (x >= 324 && x <= 369) {
-                System.out.println("Apuesta al numero 18");
                 casilleros.get(19).sumarFicha();
             }
             if (x >= 373 && x <= 416) {
-                System.out.println("Apuesta al numero 21");
                 casilleros.get(22).sumarFicha();
             }
             if (x >= 422 && x <= 463) {
-                System.out.println("Apuesta al numero 24");
                 casilleros.get(25).sumarFicha();
             }
             if (x >= 468 && x <= 511) {
-                System.out.println("Apuesta al numero 27");
                 casilleros.get(28).sumarFicha();
             }
             if (x >= 517 && x <= 560) {
-                System.out.println("Apuesta al numero 30");
                 casilleros.get(31).sumarFicha();
             }
             if (x >= 563 && x <= 606) {
-                System.out.println("Apuesta al numero 33");
                 casilleros.get(34).sumarFicha();
             }
             if (x >= 610 && x <= 653) {
-                System.out.println("Apuesta al numero 36");
                 casilleros.get(37).sumarFicha();
             }
             if (x >= 660 && x <= 701) {
-                System.out.println("Apuesta a la 3ra columna");
                 columna3.sumarFicha();
             }
         }
         //cuarta columna
         if (y >= 240 && y <= 311){
             if (x >= 89 && x <= 276) {
-                System.out.println("Apuesta a la 1ra docena");
                 docena1.sumarFicha();
             }
             if (x >= 280 && x <= 464) {
-                System.out.println("Apuesta a la 2da docena");
                 docena2.sumarFicha();
             }
             if (x >= 468 && x <= 655) {
-                System.out.println("Apuesta a la 3ra docena");
                 docena3.sumarFicha();
             }
         }
         //quinta columna
         if (y >= 316 && y <= 385){
             if (x >= 280 && x <= 370) {
-                System.out.println("Apuesta al rojo");
                 rojos.sumarFicha();
             }
             if (x >= 374 && x <= 464) {
-                System.out.println("Apuesta al negro");
                 negros.sumarFicha();
             }
             if (x >= 89 && x <= 183) {
-                System.out.println("Apuesta a los numeros del 1 a 18");
                 falta.sumarFicha();
             }
             if (x >= 185 && x <= 276) {
-                System.out.println("Apuesta a los numeros pares");//borrar linea
                 pares.sumarFicha();
             }
             if (x >= 468 && x <= 560) {
-                System.out.println("Apuesta a los numeros impares");//borrar linea
                 impares.sumarFicha();
             }
             if (x >= 566 && x <= 655) {
-                System.out.println("Apuesta a los numeros del 19 al 36");
                 falta.sumarFicha();
             }
         }
-       fichas--;    
+       fichas -= 10;    
     }
     
 

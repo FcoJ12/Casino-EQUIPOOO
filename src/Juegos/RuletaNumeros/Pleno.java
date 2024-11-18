@@ -36,7 +36,7 @@ public class Pleno extends UtileriasRuleta{
     
     @Override
     public double calcularGanancia() {
-        return getApuesta() * 36; 
+        return getApuesta() * 360; 
     }
     
 }

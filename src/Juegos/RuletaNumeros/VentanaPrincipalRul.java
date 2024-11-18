@@ -18,14 +18,12 @@ public class VentanaPrincipalRul extends javax.swing.JFrame {
     public void setSaldo(double saldo){
         this.saldo = saldo;
         newframe.ruleta.setFichas(saldo);
-        System.out.println("b: " + newframe.ruleta.getFichas());
         newframe.actualizarFichas(true);
     }
     
     public VentanaPrincipalRul() {
         initComponents();
         newframe.ruleta.setFichas(saldo);
-        System.out.println("a: " + newframe.ruleta.getFichas());
         newframe.actualizarFichas(true);
     }
 
