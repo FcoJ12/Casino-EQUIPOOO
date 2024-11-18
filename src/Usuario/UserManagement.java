@@ -16,8 +16,7 @@ public class UserManagement {
     private static Usuario usuarioActual = null;
     
     public UserManagement(){
-        System.out.println(cargarUsuarios());
-        System.out.println(usuarios);
+        cargarUsuarios();
     }
     
     public static boolean iniciarSesion(String nickname, String contraseña){
@@ -35,13 +34,13 @@ public class UserManagement {
     
     public static boolean crearUsuario(String nombre, String nickname, String contra){
         if(usuarios.containsKey(nickname)){
-            System.out.println("Error: El nombre de usuario ya existe.");
+            
             return false;
         }
         
         Usuario nuevo = new Usuario(nombre, nickname, contra);
         usuarios.put(nickname, nuevo);
-        System.out.println(guardarUsuarios());
+        guardarUsuarios();
         return true;
     }
     
